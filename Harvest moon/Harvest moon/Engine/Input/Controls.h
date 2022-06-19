@@ -1,0 +1,25 @@
+#pragma once
+
+enum ControlsJoc
+{
+	ESCAPE,
+
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+	INTERACTUAR,
+	REGAR,
+	GUARDAR,
+
+	F1, F2, F3, F4, F5, F6, F7, F8,
+
+	LLAVOR1,
+	LLAVOR2,
+	LLAVOR3,
+	LLAVOR4,
+
+	ACEPTAR,
+	CANCELAR
+
+};

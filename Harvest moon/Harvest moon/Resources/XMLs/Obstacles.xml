@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OBSTACLES>
+
+  <OBSTACLE>
+    <nom>Valla fitxe</nom>
+    <mida>1</mida>
+    <tilemap>Obstacles</tilemap>
+    <tilenums>3</tilenums>
+  </OBSTACLE>
+
+  <OBSTACLE>
+    <nom>Valla mòbil</nom>
+    <mida>1</mida>
+    <tilemap>Obstacles</tilemap>
+    <tilenums>4</tilenums>
+  </OBSTACLE>
+
+  <OBSTACLE>
+    <nom>Herbots</nom>
+    <mida>1</mida>
+    <tilemap>Obstacles</tilemap>
+    <tilenums>5</tilenums>
+  </OBSTACLE>
+
+  <OBSTACLE>
+    <nom>Pedra</nom>
+    <mida>1</mida>
+    <tilemap>Obstacles</tilemap>
+    <tilenums>6</tilenums>
+  </OBSTACLE>
+
+  <OBSTACLE>
+    <nom>Cartell</nom>
+    <mida>1</mida>
+    <tilemap>Obstacles</tilemap>
+    <tilenums>7</tilenums>
+  </OBSTACLE>
+
+  <OBSTACLE>
+    <nom>Tocó</nom>
+    <mida>2,2</mida>
+    <tilemap>Obstacles</tilemap>
+    <tilenums>18,19,20,21</tilenums>
+  </OBSTACLE>
+
+  <OBSTACLE>
+    <nom>Pedra gran</nom>
+    <mida>2,2</mida>
+    <tilemap>Obstacles</tilemap>
+    <tilenums>22,23,24,25</tilenums>
+  </OBSTACLE>
+
+</OBSTACLES>

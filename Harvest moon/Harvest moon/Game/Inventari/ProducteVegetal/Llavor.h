@@ -1,0 +1,12 @@
+#pragma once
+enum Llavors {
+	HERBA,
+	NAP,
+	PATATA,
+	TOMATA,
+	BLAT,
+	ALBERGINIA,
+	CACAUET,
+	CARROTA,
+	BROQUIL
+};

@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ResourceManager">
+    <Position X="4.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAIgACEAARAABACEAAAAAAAAwQAAQIAQDAJAAA=</HashCode>
+      <FileName>Engine\Graphics\ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene">
+    <Position X="7.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAkAAABAAAQAAAAAIACAAAAAAUAAA=</HashCode>
+      <FileName>Engine\Scene\Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager">
+    <Position X="4" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQAEAAAAAAgBAAAAAIAAYAAAACAAAAAAQ=</HashCode>
+      <FileName>Engine\Scene\SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager">
+    <Position X="11.5" Y="16" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAIEEAAAAAAAIAASCAgAAAIEAAAAAQAAACAhAAAAAA=</HashCode>
+      <FileName>Engine\Sound\SoundManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Video">
+    <Position X="1.75" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAABAAQhAAAAAAAAAQQAAAEACAIAQAAIAQgAAAEAg=</HashCode>
+      <FileName>Engine\Graphics\Video.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jugador">
+    <Position X="12" Y="21.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAACAAAABECQAECAAAEAcgAACQABBAQAAQQkRUAAAA=</HashCode>
+      <FileName>Game\Jugador\Jugador.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Meteorologia">
+    <Position X="10.25" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Efectes adversos\Temps\Meteorologia.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventari">
+    <Position X="16.25" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIABAAAAIEAAACAAAAEgAAAIAABAAAAAAAA=</HashCode>
+      <FileName>Game\Inventari\Inventari.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dialeg">
+    <Position X="14.25" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Interficies\Dialeg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cultiu">
+    <Position X="8.5" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kEAAAAAAAAAAAAAAAAAAIAAAAAAAQAAAAAAIAEAAAAA=</HashCode>
+      <FileName>Game\Inventari\ProducteVegetal\Cultiu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Joc">
+    <Position X="8.25" Y="16" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgBAQBAAAIAQQAAAEgAAAAAAAAACABAAAAA=</HashCode>
+      <FileName>Game\Joc.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager">
+    <Position X="4.75" Y="26.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAAAAAAAQAAAAAAAAAAEAAAAAAEAAACA=</HashCode>
+      <FileName>Engine\Input\InputManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Keyboard">
+    <Position X="0.5" Y="24.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gIAAAAAAAAAABQACAAAQAIAIAAAAAAhCQAgAAAAAQIA=</HashCode>
+      <FileName>Engine\Input\Keyboard.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Intro">
+    <Position X="12" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Especials\Intro.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenu">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Especials\MainMenu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Casa">
+    <Position X="16" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Granja\Casa.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Granja">
+    <Position X="12" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Granja\Granja.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EstableVaques">
+    <Position X="14" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Granja\EstableVaques.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EstableGallines">
+    <Position X="16" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Granja\EstableGallines.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CasetaEines">
+    <Position X="18" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Granja\CasetaEines.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cova">
+    <Position X="12" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Cova\Cova.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CovaTapada">
+    <Position X="16" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Cova\CovaTapada.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CovaSpa">
+    <Position X="14" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Cova\CovaSpa.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CovaProfunda">
+    <Position X="18" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Cova\CovaProfunda.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Poble">
+    <Position X="12" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Poble\Poble.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerShop">
+    <Position X="14" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Poble\FlowerShop.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JuiceBar">
+    <Position X="16" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Poble\JuiceBar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Carpenter">
+    <Position X="18" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Poble\Carpenter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Church">
+    <Position X="20" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Poble\Church.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToolShop">
+    <Position X="22" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Poble\ToolShop.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Restaurant">
+    <Position X="24" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Poble\Restaurant.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalShop">
+    <Position X="26" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Escenes\Poble\AnimalShop.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="InputButton">
+    <Position X="3.75" Y="24.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Engine\Input\InputManager.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="InputAxis">
+    <Position X="3.75" Y="21.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAiAAEAAAA=</HashCode>
+      <FileName>Engine\Input\InputManager.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="EscenaEnum">
+    <Position X="2" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAACACBABA4gBAAQBCBAAAAAEAAIAAAAAAIQAIAAAAQ=</HashCode>
+      <FileName>Engine\Scene\SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Direcio">
+    <Position X="12" Y="28.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAABAAAAAAAAAQABAAAA=</HashCode>
+      <FileName>Game\Mapa\Mapa.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Estacio">
+    <Position X="10.25" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgEAAAAAAAAAAAAAAAAAABAABAAAAAAAAAA=</HashCode>
+      <FileName>Game\Efectes adversos\Temps\Meteorologia.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Clima">
+    <Position X="10.25" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAQAgAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Efectes adversos\Temps\Meteorologia.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Eines">
+    <Position X="16.25" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Game\Inventari\Eines\Eina.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Llavors">
+    <Position X="8.5" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQIAAAAAABAAEAAAAAEAAAAAAAAAEAAAAAAEBAA=</HashCode>
+      <FileName>Game\Inventari\ProducteVegetal\Cultiu.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ButtonStates">
+    <Position X="4.75" Y="29" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEEAAA=</HashCode>
+      <FileName>Engine\Input\InputManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{5d386719-9c6b-401d-a47a-f0d5e5670197}</ProjectGuid>
+    <RootNamespace>Harvestmoon</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\SDLs\SDL2\include;..\SDLs\SDL2_image\include;..\SDLs\SDL2_mixer\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\SDLs\SDL2\lib\x86;..\SDLs\SDL2_image\lib\x86;..\SDLs\SDL2_mixer\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>..\SDLs\SDL2\include;..\SDLs\SDL2_image\include;..\SDLs\SDL2_mixer\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\SDLs\SDL2\lib\x86;..\SDLs\SDL2_image\lib\x86;..\SDLs\SDL2_mixer\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\SDLs\SDL2\include;..\SDLs\SDL2_image\include;..\SDLs\SDL2_mixer\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\SDLs\SDL2\lib\x86;..\SDLs\SDL2_image\lib\x86;..\SDLs\SDL2_mixer\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>26812;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Altres\Llibreries\tinyxml2.cpp" />
+    <ClCompile Include="Altres\main.cpp" />
+    <ClCompile Include="Game\Escenes\DirectorEscenes.cpp" />
+    <ClCompile Include="Game\Escenes\Escena.cpp" />
+    <ClCompile Include="Game\Inventari\Eines\Eina.cpp" />
+    <ClCompile Include="Game\Escenes\Poble\AnimalShop.cpp" />
+    <ClCompile Include="Game\Escenes\Poble\Carpenter.cpp" />
+    <ClCompile Include="Game\Escenes\Poble\Church.cpp" />
+    <ClCompile Include="Game\Escenes\Poble\FlowerShop.cpp" />
+    <ClCompile Include="Game\Escenes\Granja\CasetaEines.cpp" />
+    <ClCompile Include="Game\Escenes\Cova\Cova.cpp" />
+    <ClCompile Include="Game\Escenes\Cova\CovaProfunda.cpp" />
+    <ClCompile Include="Game\Escenes\Cova\CovaSpa.cpp" />
+    <ClCompile Include="Game\Escenes\Cova\CovaTapada.cpp" />
+    <ClCompile Include="Game\Escenes\Granja\EstableGallines.cpp" />
+    <ClCompile Include="Game\Escenes\Granja\EstableVaques.cpp" />
+    <ClCompile Include="Game\Escenes\Granja\Casa.cpp" />
+    <ClCompile Include="Game\Inventari\ProducteVegetal\Cultiu.cpp" />
+    <ClCompile Include="Game\Interficies\Dialeg.cpp" />
+    <ClCompile Include="Game\Animacions\AnimationManager.cpp" />
+    <ClCompile Include="Engine\Graphics\ResourceManager.cpp" />
+    <ClCompile Include="Engine\Graphics\Video.cpp" />
+    <ClCompile Include="Engine\Input\InputManager.cpp" />
+    <ClCompile Include="Engine\Input\Keyboard.cpp" />
+    <ClCompile Include="Engine\Sound\SoundManager.cpp" />
+    <ClCompile Include="Game\Inventari\Inventari.cpp" />
+    <ClCompile Include="Game\Jugador\Jugador.cpp" />
+    <ClCompile Include="Game\Efectes adversos\Temps\Meteorologia.cpp" />
+    <ClCompile Include="Game\Escenes\Especials\Intro.cpp" />
+    <ClCompile Include="Game\Escenes\Granja\Granja.cpp" />
+    <ClCompile Include="Game\Escenes\Especials\MainMenu.cpp" />
+    <ClCompile Include="Game\Escenes\Poble\JuiceBar.cpp" />
+    <ClCompile Include="Game\Escenes\Poble\Poble.cpp" />
+    <ClCompile Include="Game\Escenes\Poble\Restaurant.cpp" />
+    <ClCompile Include="Game\Escenes\Poble\ToolShop.cpp" />
+    <ClCompile Include="Game\Mapa\Layer.cpp" />
+    <ClCompile Include="Game\Mapa\Mapa.cpp" />
+    <ClCompile Include="Game\Mapa\Tileset.cpp" />
+    <ClCompile Include="Game\Inventari\ProducteAnimal\Productes.cpp" />
+    <ClCompile Include="Game\Escenes\Especials\Proves.cpp" />
+    <ClCompile Include="Engine\Timer\Temps.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Altres\Definicions.h" />
+    <ClInclude Include="Altres\Llibreries\tinyxml2.h" />
+    <ClInclude Include="Engine\Input\Controls.h" />
+    <ClInclude Include="Game\Efectes adversos\Temps\Clima.h" />
+    <ClInclude Include="Game\Efectes adversos\Temps\Estacio.h" />
+    <ClInclude Include="Game\Escenes\DirectorEscenes.h" />
+    <ClInclude Include="Game\Escenes\Escena.h" />
+    <ClInclude Include="Game\Escenes\LlistaEscenes.h" />
+    <ClInclude Include="Game\Inventari\Eines\Eina.h" />
+    <ClInclude Include="Game\Escenes\Poble\AnimalShop.h" />
+    <ClInclude Include="Game\Escenes\Poble\Carpenter.h" />
+    <ClInclude Include="Game\Escenes\Poble\Church.h" />
+    <ClInclude Include="Game\Escenes\Poble\FlowerShop.h" />
+    <ClInclude Include="Game\Escenes\Granja\CasetaEines.h" />
+    <ClInclude Include="Game\Escenes\Cova\Cova.h" />
+    <ClInclude Include="Game\Escenes\Cova\CovaProfunda.h" />
+    <ClInclude Include="Game\Escenes\Cova\CovaSpa.h" />
+    <ClInclude Include="Game\Escenes\Cova\CovaTapada.h" />
+    <ClInclude Include="Game\Escenes\Granja\EstableGallines.h" />
+    <ClInclude Include="Game\Escenes\Granja\EstableVaques.h" />
+    <ClInclude Include="Game\Escenes\Granja\Casa.h" />
+    <ClInclude Include="Game\Inventari\ProducteVegetal\Cultiu.h" />
+    <ClInclude Include="Game\Interficies\Dialeg.h" />
+    <ClInclude Include="Game\Animacions\AnimationManager.h" />
+    <ClInclude Include="Engine\Graphics\ResourceManager.h" />
+    <ClInclude Include="Engine\Graphics\Video.h" />
+    <ClInclude Include="Engine\Input\Gamepad.h" />
+    <ClInclude Include="Engine\Input\InputManager.h" />
+    <ClInclude Include="Engine\Input\Keyboard.h" />
+    <ClInclude Include="Engine\Sound\SoundManager.h" />
+    <ClInclude Include="Game\Inventari\Inventari.h" />
+    <ClInclude Include="Game\Inventari\ProducteVegetal\Llavor.h" />
+    <ClInclude Include="Game\Jugador\Direccio.h" />
+    <ClInclude Include="Game\Jugador\Jugador.h" />
+    <ClInclude Include="Game\Efectes adversos\Temps\Meteorologia.h" />
+    <ClInclude Include="Game\Escenes\Especials\Intro.h" />
+    <ClInclude Include="Game\Escenes\Granja\Granja.h" />
+    <ClInclude Include="Game\Escenes\Especials\MainMenu.h" />
+    <ClInclude Include="Game\Escenes\Poble\JuiceBar.h" />
+    <ClInclude Include="Game\Escenes\Poble\Poble.h" />
+    <ClInclude Include="Game\Escenes\Poble\Restaurant.h" />
+    <ClInclude Include="Game\Escenes\Poble\ToolShop.h" />
+    <ClInclude Include="Game\Jugador\LlistaAnimacions.h" />
+    <ClInclude Include="Game\Mapa\Layer.h" />
+    <ClInclude Include="Game\Mapa\Mapa.h" />
+    <ClInclude Include="Game\Mapa\Tileset.h" />
+    <ClInclude Include="Game\Inventari\ProducteAnimal\Productes.h" />
+    <ClInclude Include="Game\Escenes\Especials\Proves.h" />
+    <ClInclude Include="Engine\Timer\Temps.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Altres\ClassDiagram.cd" />
+    <None Include="libFLAC-8.dll" />
+    <None Include="libjpeg-9.dll" />
+    <None Include="libmodplug-1.dll" />
+    <None Include="libmpg123-0.dll" />
+    <None Include="libogg-0.dll" />
+    <None Include="libopus-0.dll" />
+    <None Include="libopusfile-0.dll" />
+    <None Include="libpng16-16.dll" />
+    <None Include="libtiff-5.dll" />
+    <None Include="libvorbis-0.dll" />
+    <None Include="libvorbisfile-3.dll" />
+    <None Include="libwebp-7.dll" />
+    <None Include="Llibreries\libFLAC-8.dll" />
+    <None Include="Llibreries\libjpeg-9.dll" />
+    <None Include="Llibreries\libmodplug-1.dll" />
+    <None Include="Llibreries\libmpg123-0.dll" />
+    <None Include="Llibreries\libogg-0.dll" />
+    <None Include="Llibreries\libopus-0.dll" />
+    <None Include="Llibreries\libopusfile-0.dll" />
+    <None Include="Llibreries\libpng16-16.dll" />
+    <None Include="Llibreries\libtiff-5.dll" />
+    <None Include="Llibreries\libvorbis-0.dll" />
+    <None Include="Llibreries\libvorbisfile-3.dll" />
+    <None Include="Llibreries\libwebp-7.dll" />
+    <None Include="Llibreries\SDL2.dll" />
+    <None Include="Llibreries\SDL2_image.dll" />
+    <None Include="Llibreries\SDL2_mixer.dll" />
+    <None Include="Llibreries\zlib1.dll" />
+    <None Include="Resources\Images\Altres\level_scroll.tmx" />
+    <None Include="Resources\Images\Altres\tileset_scroll.tsx" />
+    <None Include="Resources\Images\Tmx\Caseta 1.tsx" />
+    <None Include="Resources\Images\Tmx\Caseta 2.tsx" />
+    <None Include="Resources\Images\Tmx\Edifici casa eines.tsx" />
+    <None Include="Resources\Images\Tmx\Edifici casa.tsx" />
+    <None Include="Resources\Images\Tmx\Edifici estable gallina.tsx" />
+    <None Include="Resources\Images\Tmx\Edifici estable vaca.tsx" />
+    <None Include="Resources\Images\Tmx\Edifici sitja.tsx" />
+    <None Include="Resources\Images\Tmx\Granja.tmx" />
+    <None Include="Resources\Images\Tmx\Intern.tsx" />
+    <None Include="Resources\Images\Tmx\Tileset cultius.tsx" />
+    <None Include="Resources\Images\Tmx\Tileset obstacles.tsx" />
+    <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
+    <None Include="SDL2_mixer.dll" />
+    <None Include="zlib1.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\Altres\background.png" />
+    <Image Include="Resources\Images\Altres\charger.png" />
+    <Image Include="Resources\Images\Altres\guybrush.png" />
+    <Image Include="Resources\Images\Altres\level_scroll.png" />
+    <Image Include="Resources\Images\Altres\rocks.png" />
+    <Image Include="Resources\Images\Altres\tileset_scroll.png" />
+    <Image Include="Resources\Images\Barn &amp; Coop Inside.png" />
+    <Image Include="Resources\Images\base.png" />
+    <Image Include="Resources\Images\Blue.png" />
+    <Image Include="Resources\Images\Chicken.png" />
+    <Image Include="Resources\Images\Crops and items.png" />
+    <Image Include="Resources\Images\Edificis\Caseta 1.png" />
+    <Image Include="Resources\Images\Edificis\Caseta 2.png" />
+    <Image Include="Resources\Images\Edificis\Edifici casa eines.png" />
+    <Image Include="Resources\Images\Edificis\Edifici casa.png" />
+    <Image Include="Resources\Images\Edificis\Edifici estable gallina interior.png" />
+    <Image Include="Resources\Images\Edificis\Edifici estable gallina.png" />
+    <Image Include="Resources\Images\Edificis\Edifici estable vaca interior.png" />
+    <Image Include="Resources\Images\Edificis\Edifici estable vaca.png" />
+    <Image Include="Resources\Images\Edificis\Edifici sitja.png" />
+    <Image Include="Resources\Images\Edificis\Eines.png" />
+    <Image Include="Resources\Images\Edificis\Interior casa.png" />
+    <Image Include="Resources\Images\Edificis\Interior caseta.png" />
+    <Image Include="Resources\Images\Edificis\Interior estable gallina.png" />
+    <Image Include="Resources\Images\Edificis\Interior estable vaca.png" />
+    <Image Include="Resources\Images\Farm Spring.png" />
+    <Image Include="Resources\Images\Green.png" />
+    <Image Include="Resources\Images\Intern.png" />
+    <Image Include="Resources\Images\Jack.png" />
+    <Image Include="Resources\Images\Mascotes.png" />
+    <Image Include="Resources\Images\Personatges\Cain.png" />
+    <Image Include="Resources\Images\Personatges\Carpenter Ken.png" />
+    <Image Include="Resources\Images\Personatges\Chet.png" />
+    <Image Include="Resources\Images\Personatges\Daisy.png" />
+    <Image Include="Resources\Images\Personatges\Doctor.png" />
+    <Image Include="Resources\Images\Personatges\Harvest Sprites.png" />
+    <Image Include="Resources\Images\Personatges\Intro Grandpa.png" />
+    <Image Include="Resources\Images\Personatges\Mary.png" />
+    <Image Include="Resources\Images\Personatges\Mayor.png" />
+    <Image Include="Resources\Images\Personatges\Rosie and Chocola.png" />
+    <Image Include="Resources\Images\Personatges\Will &amp; Bill.png" />
+    <Image Include="Resources\Images\Pets.png" />
+    <Image Include="Resources\Images\Pollastre.png" />
+    <Image Include="Resources\Images\Pollastres.png" />
+    <Image Include="Resources\Images\Red.png" />
+    <Image Include="Resources\Images\SNES - Harvest Moon - Jack.png" />
+    <Image Include="Resources\Images\Tiles.png" />
+    <Image Include="Resources\Images\TilesetCultius.png" />
+    <Image Include="Resources\Images\TilesetObstacles.png" />
+    <Image Include="Resources\Images\Tool Shed Inside.png" />
+    <Image Include="Resources\Images\Village.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\Sounds\death.wav" />
+    <Media Include="Resources\Sounds\gameover.wav" />
+    <Media Include="Resources\Sounds\Monster-Snoring.wav" />
+    <Media Include="Resources\Sounds\shock-wall.wav" />
+    <Media Include="Resources\Sounds\step-human.wav" />
+    <Media Include="Resources\Sounds\step-monster.wav" />
+    <Media Include="Resources\Sounds\victory.wav" />
+    <Media Include="Resources\Sounds\waterfall.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Resources\XMLs\Cultius.xml" />
+    <Xml Include="Resources\XMLs\Obstacles.xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

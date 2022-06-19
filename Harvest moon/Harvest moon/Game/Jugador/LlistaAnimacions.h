@@ -1,0 +1,18 @@
+#pragma once
+
+enum AnimacioActiva
+{
+	IDLE,
+	CAMINAR,
+	CORRER,
+	RECOLLIR_FRUIT,
+	SECAR_SUOR,
+	CANSAT,
+	ESGOTAT,
+	BEURE,
+	SALTAR,
+	PORTAR_OBJECTE,
+	EXERCICIS,
+	CANVI_ITEM,
+	MENJAR
+};

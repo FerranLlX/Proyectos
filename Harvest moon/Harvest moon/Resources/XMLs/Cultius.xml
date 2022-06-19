@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CULTIUS>
+
+  <PLANTA>
+    <nom>Herba</nom>
+    <preu>0</preu>
+    <dies>3</dies>
+    <numFases>3</numFases>
+    <fases>0,1,2</fases>
+    <estacio>Primavera, Estiu, Tardo</estacio>
+    <renovable>no</renovable>
+    <tilemap>Obstacles</tilemap>
+    <tilenums>5</tilenums>
+  </PLANTA>
+
+  <PLANTA>
+    <nom>Nap</nom>
+    <preu>120</preu>
+    <dies>4</dies>
+    <numFases>3</numFases>
+    <fases>0,1,1,2</fases>
+    <estacio>Primavera</estacio>
+    <renovable>no</renovable>
+    <tilemap>Cultius</tilemap>
+    <tilenums>36,37,38,39,40,41,42</tilenums>
+  </PLANTA>
+
+  <PLANTA>
+    <nom>Patata</nom>
+    <preu>150</preu>
+    <dies>6</dies>
+    <numFases>4</numFases>
+    <fases>0,1,1,2,2,3</fases>
+    <estacio>Primavera</estacio>
+    <renovable>no</renovable>
+    <tilemap>Cultius</tilemap>
+    <tilenums>54,55,56,57,58,59,60</tilenums>
+  </PLANTA>
+
+  <PLANTA>
+    <nom>Tomata</nom>
+    <preu>200</preu>
+    <dies>9</dies>
+    <numFases>5</numFases>
+    <fases>0,1,1,2,2,3,3,4,5</fases>
+    <estacio>Estiu</estacio>
+    <renovable>si</renovable>
+    <tilemap>Cultius</tilemap>
+    <tilenums>72,73,74,75,76,77,78,79,80,81,82</tilenums>
+  </PLANTA>
+
+  <PLANTA>
+    <nom>Blat</nom>
+    <preu>300</preu>
+    <dies>13</dies>
+    <numFases>5</numFases>
+    <fases>0,1,1,1,2,2,2,3,3,3,4,4,5</fases>
+    <estacio>Estiu</estacio>
+    <renovable>si</renovable>
+    <tilemap>Cultius</tilemap>
+    <tilenums>90,91,92,93,94,95,96,97,98,99,100</tilenums>
+  </PLANTA>
+
+  <PLANTA>
+    <nom>Alberginia</nom>
+    <preu>150</preu>
+    <dies>5</dies>
+    <numFases>3</numFases>
+    <fases>0,1,1,1,2</fases>
+    <estacio>Tardo</estacio>
+    <renovable>no</renovable>
+    <tilemap>Cultius</tilemap>
+    <tilenums>108,109,110,111,112,113,114</tilenums>
+  </PLANTA>
+
+  <PLANTA>
+    <nom>Cacauet</nom>
+    <preu>200</preu>
+    <dies>7</dies>
+    <numFases>4</numFases>
+    <fases>0,1,1,1,2,2,3</fases>
+    <estacio>Tardo</estacio>
+    <renovable>no</renovable>
+    <tilemap>Cultius</tilemap>
+    <tilenums>126,127,128,129,130,131,132</tilenums>
+  </PLANTA>
+
+  <PLANTA>
+    <nom>Carrota</nom>
+    <preu>300</preu>
+    <dies>7</dies>
+    <numFases>3</numFases>
+    <fases>0,1,1,1,1,1,2</fases>
+    <estacio>Hivern</estacio>
+    <renovable>no</renovable>
+    <tilemap>Cultius</tilemap>
+    <tilenums>144,145,146,147,148,149,150</tilenums>
+  </PLANTA>
+
+  <PLANTA>
+    <nom>Broquil</nom>
+    <preu>500</preu>
+    <dies>8</dies>
+    <numFases>5</numFases>
+    <fases>0,1,1,2,2,3,3,4</fases>
+    <estacio>Hivern</estacio>
+    <renovable>si</renovable>
+    <tilemap>Cultius</tilemap>
+    <tilenums>162,163,164,165,166,167,168,169,170,171,172</tilenums>
+  </PLANTA>
+
+</CULTIUS>
