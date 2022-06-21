@@ -1,7 +1,5 @@
 # Proyectos
 
----
-
 Harvest Moon: replica del juego de la GameBoy Color. La estructura del código más o menos sigue de la siguiente forma:
 
 - Altres
@@ -19,3 +17,7 @@ Harvest Moon: replica del juego de la GameBoy Color. La estructura del código m
   - Images
   - Sounds
   - Xmls
+
+---
+
+...
