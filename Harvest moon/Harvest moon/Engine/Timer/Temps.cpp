@@ -1,6 +1,6 @@
 #include "Temps.h"
 
-void Temps::Retrasar(int value)
+void Temps::Delay(int value)
 {
 	SDL_Delay(value);
 }

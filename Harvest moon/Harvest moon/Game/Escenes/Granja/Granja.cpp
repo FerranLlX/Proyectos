@@ -21,7 +21,7 @@ void Granja::ReInit()
 
 	_dirActual = EST;
 
-	_numEscenaQueVullAnar = GRANJA;
+	_numEscenaQueVullAnar = FARM;
 
 	map->setActivarRequadre(false);
 	map->ResetsPosicioRequadre();
@@ -264,31 +264,31 @@ void Granja::Update()
 		if (contigutCela == 290)
 		{
 			goexit = true;
-			_numEscenaQueVullAnar = POBLE;
+			_numEscenaQueVullAnar = TOWN;
 			cout << "Vas a poble" << endl;
 		}
 		else if (contigutCela == 291)
 		{
 			goexit = true;
-			_numEscenaQueVullAnar = CASA;
+			_numEscenaQueVullAnar = HOUSE;
 			cout << "Vas a casa" << endl;
 		}
 		else if (contigutCela == 292)
 		{
 			goexit = true;
-			_numEscenaQueVullAnar = ESTABLE_VAQUES;
+			_numEscenaQueVullAnar = BARN_COW;
 			cout << "Vas a vaques" << endl;
 		}
 		else if (contigutCela == 293)
 		{
 			goexit = true;
-			_numEscenaQueVullAnar = ESTABLE_GALLINES;
+			_numEscenaQueVullAnar = BARN_CHICKEN;
 			cout << "Vas a gallines" << endl;
 		}
 		else if (contigutCela == 294)
 		{
 			goexit = true;
-			_numEscenaQueVullAnar = CASETA;
+			_numEscenaQueVullAnar = TOOL_SHED;
 			cout << "Vas a caseta" << endl;
 		}
 		else

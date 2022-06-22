@@ -7,7 +7,7 @@ ResourceManager* ResourceManager::_resourceManagerInstance = NULL;
 
 Sint32 ResourceManager::loadAndGetGraphicID(const char* file)
 {
-	// Comprova si exiteix algun, en cas contrari l'afegeix
+	// Check if exist, or add
 	if (_resourceManagerIDMap.count(file) > 0)
 		return _resourceManagerIDMap.find(file)->second;
 	else
@@ -21,9 +21,7 @@ string ResourceManager::getGraphicPathByID(Sint32 ID)
 	for (it = _resourceManagerIDMap.begin(); it != _resourceManagerIDMap.end(); it++)
 	{
 		if (it->second == ID)
-		{
 			return it->first;
-		}
 	}
 
 	return "";
@@ -31,33 +29,14 @@ string ResourceManager::getGraphicPathByID(Sint32 ID)
 
 SDL_Texture* ResourceManager::getGraphicByID(Sint32 id)
 {
-	/*map<string, Sint32>::iterator it;
-	int posicio = 0;
-
-	for (it = _resourceManagerIDMap.begin(); it != _resourceManagerIDMap.end(); it++)
-	{
-		if (it->second == id) {
-			break;
-		}
-		posicio++;
-	}
-
-	int vectorSize = _graphicsVector.size();
-	for (int i = 0; i < vectorSize; i++)
-	{
-
-	}*/
-
 	return _graphicsVector[id];
 }
 
 void ResourceManager::getGraphicSize(Sint32 img, int& width, int& height)
 {
 	SDL_Texture* imatgeAAnalitzar = getGraphicByID(img);
-
 	SDL_Point size;
 	SDL_QueryTexture(imatgeAAnalitzar, NULL, NULL, &size.x, &size.y);
-
 	width = size.x;
 	height = size.y;
 }
@@ -66,7 +45,6 @@ Uint16 ResourceManager::getGraphicWidth(Sint32 img)
 {
 	int width;
 	int height;
-
 	getGraphicSize(img, width, height);
 
 	return width;
@@ -76,7 +54,6 @@ Uint16 ResourceManager::getGraphicHeight(Sint32 img)
 {
 	int width;
 	int height;
-
 	getGraphicSize(img, width, height);
 
 	return height;
@@ -104,25 +81,23 @@ void ResourceManager::printLoadedGraphics()
 
 void ResourceManager::removeGraphic(const char* file)
 {
-	// No es pot fer un delete sino igualar a NULL, perque no es moguin les posicions dels punters
+	// It is not possible to make a delete but to equalize to NULL, so that the positions of the pointers do not move.
 	SDL_DestroyTexture(_graphicsVector.at(_resourceManagerIDMap.find(file)->second));
 	_graphicsVector.at(_resourceManagerIDMap.find(file)->second) = nullptr;
 
-	// Al inserir una nova Texture utilitzar la variable _firstFreeSlotChunk per saber on posar el nou
+	// When inserting a new Texture use the _firstFreeSlotChunk variable to know where to place it.
 	updateFirstFreeSlotGraphic();
 }
 
 
 ResourceManager::~ResourceManager() {
 
-	// Alliberar totes les textures
+	// Release all textures
 
 	//SDL_DestroyTexture(bmpTex);
 	//SDL_DestroyRenderer(renderer);
 	//SDL_DestroyWindow(win);
 	//SDL_Quit();
-
-
 }
 
 
@@ -149,20 +124,16 @@ Sint32 ResourceManager::addGraphic(const char* file)
 	string nomFitxer = file;
 
 	SDL_Surface* surfaceTemp = IMG_Load(file);
-	if (surfaceTemp == NULL)
-		cout << "Load Imatge file (" + nomFitxer + ") -> ERROR - " << IMG_GetError() << endl;
-	else
-		cout << "Load Imatge file (" + nomFitxer + ") -> OK" << endl;
+	if (surfaceTemp == NULL) cout << "Load Imatge file (" + nomFitxer + ") -> ERROR - " << IMG_GetError() << endl;
+	else cout << "Load Imatge file (" + nomFitxer + ") -> OK" << endl;
 
 	SDL_Texture* textureTmp = SDL_CreateTextureFromSurface(_render, surfaceTemp);
-	if (textureTmp == NULL)
-		cout << "Crear textura (" + nomFitxer + ") -> ERROR - " << SDL_GetError() << endl;
-	else
-		cout << "Crear textura (" + nomFitxer + ") -> OK" << endl;
+	if (textureTmp == NULL) cout << "Crear textura (" + nomFitxer + ") -> ERROR - " << SDL_GetError() << endl;
+	else cout << "Crear textura (" + nomFitxer + ") -> OK" << endl;
 
 	cout << "-------------------------------------------------------------------" << endl;
 
-	// Activa la textura en mode Blend per permetre les transperencies
+	// Activate the texture in Blend mode to allow transperencies.
 	SDL_SetTextureBlendMode(textureTmp, SDL_BLENDMODE_BLEND);
 
 	SDL_FreeSurface(surfaceTemp);
@@ -171,7 +142,6 @@ Sint32 ResourceManager::addGraphic(const char* file)
 
 	if (_mFirstFreeSlot == -1) {
 		_graphicsVector.push_back(textureTmp);
-
 		int size = _graphicsVector.size();
 		map<string, Sint32>::iterator it = _resourceManagerIDMap.begin();
 		_resourceManagerIDMap.insert(it, pair<string, Sint32>(file, size - 1));
@@ -179,7 +149,6 @@ Sint32 ResourceManager::addGraphic(const char* file)
 	}
 	else {
 		_graphicsVector.insert(_graphicsVector.begin() + _mFirstFreeSlot, textureTmp);
-
 		map<string, Sint32>::iterator it = _resourceManagerIDMap.begin();
 		_resourceManagerIDMap.insert(it, pair<string, Sint32>(file, _mFirstFreeSlot));
 		return _mFirstFreeSlot;
@@ -210,7 +179,7 @@ void ResourceManager::updateFirstFreeSlotGraphic()
 
 		if (!trobat)
 		{
-			// -1 vol dir que haurà de crear un nou Slot per afegir un nou resource
+			// -1 means that you will have to create a new Slot to add a new resource
 			_mFirstFreeSlot = -1;
 		}
 	}

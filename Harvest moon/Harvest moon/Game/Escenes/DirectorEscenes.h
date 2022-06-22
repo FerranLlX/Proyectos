@@ -22,7 +22,7 @@ public:
 		
 	void Update();
 	void Render();
-	void CanviEscena(EscenaEnum seguentEscena);
+	void ChangeScene(EscenaEnum seguentEscena);
 
 	EscenaEnum getEscenaQueToca() { return _escenaActual; }
 	void setEscenaQueToca(EscenaEnum numEscena) { _escenaActual = numEscena; }

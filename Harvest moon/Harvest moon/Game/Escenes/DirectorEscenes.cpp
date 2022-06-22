@@ -20,19 +20,19 @@ void DirectorEscenes::Update()
 	{
 	case INTRO:				_vectorEscenes[INTRO]->Update();			break;
 	case MAINMENU:			_vectorEscenes[MAINMENU]->Update();			break;
-	case GRANJA:			_vectorEscenes[GRANJA]->Update();			numeroEscena = ((Granja*)_vectorEscenes[GRANJA])->getNumEscena();	break;
-	case POBLE:				_vectorEscenes[POBLE]->Update();			break;
-	case CASA:				_vectorEscenes[CASA]->Update();				break;
-	case ESTABLE_GALLINES:	_vectorEscenes[ESTABLE_GALLINES]->Update();	break;
-	case ESTABLE_VAQUES:	_vectorEscenes[ESTABLE_VAQUES]->Update();	break;
-	case CASETA:			_vectorEscenes[CASETA]->Update();			break;
+	case FARM:			_vectorEscenes[FARM]->Update();			numeroEscena = ((Granja*)_vectorEscenes[FARM])->getNumEscena();	break;
+	case TOWN:				_vectorEscenes[TOWN]->Update();			break;
+	case HOUSE:				_vectorEscenes[HOUSE]->Update();				break;
+	case BARN_CHICKEN:	_vectorEscenes[BARN_CHICKEN]->Update();	break;
+	case BARN_COW:	_vectorEscenes[BARN_COW]->Update();	break;
+	case TOOL_SHED:			_vectorEscenes[TOOL_SHED]->Update();			break;
 	case _LASTSCENE: break;
 	default:
 		break;
 	}
 
 	if (numeroEscena != _LASTSCENE)
-		CanviEscena(numeroEscena);
+		ChangeScene(numeroEscena);
 }
 
 void DirectorEscenes::Render()
@@ -41,19 +41,19 @@ void DirectorEscenes::Render()
 	{
 	case INTRO:				_vectorEscenes[INTRO]->Render();			break;
 	case MAINMENU:			_vectorEscenes[MAINMENU]->Render();			break;
-	case GRANJA:			_vectorEscenes[GRANJA]->Render();			break;
-	case POBLE:				_vectorEscenes[POBLE]->Render();			break;
-	case CASA:				_vectorEscenes[CASA]->Render();				break;
-	case ESTABLE_GALLINES:	_vectorEscenes[ESTABLE_GALLINES]->Render();	break;
-	case ESTABLE_VAQUES:	_vectorEscenes[ESTABLE_VAQUES]->Render();	break;
-	case CASETA:			_vectorEscenes[CASETA]->Render();			break;
+	case FARM:			_vectorEscenes[FARM]->Render();			break;
+	case TOWN:				_vectorEscenes[TOWN]->Render();			break;
+	case HOUSE:				_vectorEscenes[HOUSE]->Render();				break;
+	case BARN_CHICKEN:	_vectorEscenes[BARN_CHICKEN]->Render();	break;
+	case BARN_COW:	_vectorEscenes[BARN_COW]->Render();	break;
+	case TOOL_SHED:			_vectorEscenes[TOOL_SHED]->Render();			break;
 	case _LASTSCENE: break;
 	default:
 		break;
 	}
 }
 
-void DirectorEscenes::CanviEscena(EscenaEnum SeguentEscena)
+void DirectorEscenes::ChangeScene(EscenaEnum SeguentEscena)
 {
 	_vectorEscenes[SeguentEscena]->ReInit();
 	_escenaActual = SeguentEscena;
@@ -67,12 +67,12 @@ void DirectorEscenes::NomEscenaActual()
 	{
 	case INTRO:				cout << "INTRO" << endl;			break;
 	case MAINMENU:			cout << "MAINMENU" << endl;			break;
-	case GRANJA:			cout << "GRANJA" << endl;			break;
-	case POBLE:				cout << "POBLE" << endl;			break;
-	case CASA:				cout << "CASA" << endl;				break;
-	case ESTABLE_GALLINES:	cout << "ESTABLE_GALLINES" << endl; break;
-	case ESTABLE_VAQUES:	cout << "ESTABLE_VAQUES" << endl;	break;
-	case CASETA:			cout << "CASETA" << endl;			break;
+	case FARM:			cout << "GRANJA" << endl;			break;
+	case TOWN:				cout << "POBLE" << endl;			break;
+	case HOUSE:				cout << "CASA" << endl;				break;
+	case BARN_CHICKEN:	cout << "ESTABLE_GALLINES" << endl; break;
+	case BARN_COW:	cout << "ESTABLE_VAQUES" << endl;	break;
+	case TOOL_SHED:			cout << "CASETA" << endl;			break;
 	case _LASTSCENE:		cout << "_LASTSCENE" << endl;		break;
 	default: break;
 	}
@@ -97,12 +97,12 @@ DirectorEscenes::DirectorEscenes(Video* video, ResourceManager* rscManager, Juga
 
 	_vectorEscenes[INTRO] = intro;
 	_vectorEscenes[MAINMENU] = mainMenu;
-	_vectorEscenes[GRANJA] = granja;
-	_vectorEscenes[POBLE] = poble;
-	_vectorEscenes[CASA] = casa;
-	_vectorEscenes[ESTABLE_GALLINES] = estableGallines;
-	_vectorEscenes[ESTABLE_VAQUES] = estableVaques;
-	_vectorEscenes[CASETA] = caseta;
+	_vectorEscenes[FARM] = granja;
+	_vectorEscenes[TOWN] = poble;
+	_vectorEscenes[HOUSE] = casa;
+	_vectorEscenes[BARN_CHICKEN] = estableGallines;
+	_vectorEscenes[BARN_COW] = estableVaques;
+	_vectorEscenes[TOOL_SHED] = caseta;
 
 	intro->Init(video, rscManager);
 	mainMenu->Init(video, rscManager);
@@ -113,5 +113,5 @@ DirectorEscenes::DirectorEscenes(Video* video, ResourceManager* rscManager, Juga
 	estableGallines->Init(video, rscManager);
 	estableVaques->Init(video, rscManager);
 
-	_escenaActual = GRANJA;
+	_escenaActual = FARM;
 }
