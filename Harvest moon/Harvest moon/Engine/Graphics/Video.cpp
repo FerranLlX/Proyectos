@@ -28,12 +28,6 @@ void Video::clearScreen()
 	SDL_RenderClear(_renderer);
 }
 
-void Video::pintarColorScreen(Uint32 color)
-{
-	SDL_FillRect(_surface, NULL, color);
-	SDL_UpdateWindowSurface(_window);
-}
-
 void Video::updateScreen()
 {
 	SDL_RenderPresent(_renderer);

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../../Altres/Llibreries/tinyxml2.h"
+#include "../../_Others/Llibreries/tinyxml2.h"
 #include "../../Engine/Graphics/ResourceManager.h"
 #include "../../Engine/Graphics/Video.h"
 
 #include "Layer.h"
 #include "Tileset.h"
-#include "../Inventari/ProducteVegetal/Cultiu.h"
+#include "../Inventory/VegetalProduct/Cultiu.h"
 #include "../Jugador/Direccio.h"
 
 #include<iostream>
@@ -48,7 +48,7 @@ public:
 	bool HiHaObstacle_NORD(int camJugX, int camJugY);
 	bool HiHaObstacle_SUD(int camJugX, int camJugY);
 	void Llaurar();
-	void Plantar(Llavors quinaLlavor);
+	void Plantar(TypesSeeds quinaLlavor);
 	void Regar();
 	void Femtar();
 	void ModificarData_PlantarTomata();

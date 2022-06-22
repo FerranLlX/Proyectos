@@ -1,6 +1,6 @@
 #pragma once
 
-enum ControlsJoc
+enum GameControls
 {
 	ESCAPE,
 
@@ -8,18 +8,18 @@ enum ControlsJoc
 	DOWN,
 	LEFT,
 	RIGHT,
-	INTERACTUAR,
-	REGAR,
-	GUARDAR,
+	INTERACT,
+	IRRIGATE,
+	SAVE,
 
 	F1, F2, F3, F4, F5, F6, F7, F8,
 
-	LLAVOR1,
-	LLAVOR2,
-	LLAVOR3,
-	LLAVOR4,
+	SEED1,
+	SEED2,
+	SEED3,
+	SEED4,
 
-	ACEPTAR,
-	CANCELAR
+	ACCEPT,
+	CANCEL
 
 };

@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL.h>
-#include "..\..\Altres\Definicions.h"
+#include "..\..\_Others\Definicions.h"
 #include "ResourceManager.h"
 
 
@@ -22,8 +22,7 @@ public:
 	};
 
 	void renderGraphic(int idTextura, Xywh* srcRect, Xywh* dstRect);
-	void clearScreen();
-	void pintarColorScreen(Uint32 color);
+	void clearScreen();	
 	void updateScreen();
 	void waitTime(int ms);
 	void close();

@@ -1,3 +1,5 @@
-﻿  DirectorEscenes.cpp
-C:\Users\ferran.llobet\Desktop\C-project\Harvest moon\Harvest moon\Game\Escenes\Granja\Granja.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Harvest moon.vcxproj -> C:\Users\ferran.llobet\Desktop\C-project\Harvest moon\Debug\Harvest moon.exe
+﻿  Inventari.cpp
+  Jugador.cpp
+  Timer.cpp
+  Generando código...
+  Harvest moon.vcxproj -> C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Debug\Harvest moon.exe

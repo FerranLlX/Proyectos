@@ -301,7 +301,7 @@ void Mapa::Llaurar()
 	_layers.at(0).data[_posicioInteractuar_X / 16][_posicioInteractuar_Y / 16] = 1;
 }
 
-void Mapa::Plantar(Llavors quinaLlavor)
+void Mapa::Plantar(TypesSeeds quinaLlavor)
 {
 	if (EsPotPlantar())
 	{
@@ -848,10 +848,10 @@ void Mapa::LoadCultius()
 			{
 				string strTempo = tmp.substr(punterInici, llargadaNum);
 
-				if (strTempo == "Primavera") cultiuTmp.quanPlantar.push_back(PRIMAVERA);
-				else if (strTempo == "Estiu") cultiuTmp.quanPlantar.push_back(ESTIU);
-				else if (strTempo == "Tardo") cultiuTmp.quanPlantar.push_back(TARDO);
-				else if (strTempo == "Hivern") cultiuTmp.quanPlantar.push_back(HIVERN);
+				if (strTempo == "Primavera") cultiuTmp.quanPlantar.push_back(SPRING);
+				else if (strTempo == "Estiu") cultiuTmp.quanPlantar.push_back(SUMMER);
+				else if (strTempo == "Tardo") cultiuTmp.quanPlantar.push_back(AUTUMN);
+				else if (strTempo == "Hivern") cultiuTmp.quanPlantar.push_back(WINTER);
 
 				punterInici = i + 1;
 				llargadaNum = 0;
