@@ -1,0 +1,12 @@
+#pragma once
+enum TypeSeeds {
+	GRASS,
+	TURNIP,
+	POTATO,
+	TOMATO,
+	WHEAT,
+	EGGPLANT,
+	PEANUT,
+	CARROT,
+	BROCCOLI
+};

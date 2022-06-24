@@ -9,7 +9,7 @@ void Granja::Init(Video* video, ResourceManager* rscManager)
 	dia = 0;
 	meteoActual.climaActual = SUNNY;
 	meteoActual.estacioActual = SPRING;
-	map = Mapa::getInstance(_videoEscena, _rscManagerEscena);
+	map = Map::getInstance(_videoEscena, _rscManagerEscena);
 }
 
 void Granja::ReInit()
@@ -19,26 +19,26 @@ void Granja::ReInit()
 	_posMonX = 34;
 	_posMonY = 408;
 
-	_dirActual = EST;
+	_dirActual = EAST;
 
 	_numEscenaQueVullAnar = FARM;
 
-	map->setActivarRequadre(false);
-	map->ResetsPosicioRequadre();
+	map->setActivateSquare(false);
+	map->ResetPositionSquare();
 }
 
 void Granja::Render()
 {
 	// Posicions Mon, Camera, Jugador i Requadre
-	int posCamX = map->NovaPosicioCamX(_posMonX);
-	int posCamY = map->NovaPosicioCamY(_posMonY);
+	int posCamX = map->NewPositionCamX(_posMonX);
+	int posCamY = map->NewPositionCamY(_posMonY);
 	int posJugadorX = _posMonX - posCamX;
 	int posJugadorY = _posMonY - posCamY;
 
 	// RENDERS
 	map->renderMap(posCamX, posCamY);
-	_jugadorGranja->RenderJugador(posJugadorX, posJugadorY);
-	map->RenderRequadre(_posMonX, _posMonY, posJugadorX, posJugadorY, _dirActual);
+	_playerFarm->RenderJugador(posJugadorX, posJugadorY);
+	map->RenderSquare(_posMonX, _posMonY, posJugadorX, posJugadorY, _dirActual);
 	_videoEscena->updateScreen();
 }
 
@@ -165,93 +165,93 @@ void Granja::Update()
 
 		if (key_Right)
 		{
-			_dirActual = EST;
-			if (!map->HiHaObstacle_EST(_posMonX, _posMonY))
+			_dirActual = EAST;
+			if (!map->ThereObstacle_East(_posMonX, _posMonY))
 				_posMonX++;
 
 			EscriurePosicio(_dirActual, map, key_Requadre);
 		}
 		if (key_Left)
 		{
-			_dirActual = OEST;
-			if (!map->HiHaObstacle_OEST(_posMonX, _posMonY))
+			_dirActual = WEST;
+			if (!map->ThereObstacle_West(_posMonX, _posMonY))
 				_posMonX--;
 
 			EscriurePosicio(_dirActual, map, key_Requadre);
 		}
 		if (key_Up)
 		{
-			_dirActual = NORD;
-			if (!map->HiHaObstacle_NORD(_posMonX, _posMonY))
+			_dirActual = NORTH;
+			if (!map->ThereObstacle_North(_posMonX, _posMonY))
 				_posMonY--;
 
 			EscriurePosicio(_dirActual, map, key_Requadre);
 		}
 		if (key_Down)
 		{
-			_dirActual = SUD;
-			if (!map->HiHaObstacle_SUD(_posMonX, _posMonY))
+			_dirActual = SOUTH;
+			if (!map->ThereObstacle_South(_posMonX, _posMonY))
 				_posMonY++;
 
 			EscriurePosicio(_dirActual, map, key_Requadre);
 		}
 
 		if (key_Requadre) {
-			map->setActivarRequadre(true);
-			map->setActivarRequadre_Regar(false);
+			map->setActivateSquare(true);
+			map->setActivateSquare_Irrigate(false);
 		}
-		else map->setActivarRequadre(false);
+		else map->setActivateSquare(false);
 
 		if (key_Requadre_Regar) {
-			map->setActivarRequadre(false);
-			map->setActivarRequadre_Regar(true);
+			map->setActivateSquare(false);
+			map->setActivateSquare_Irrigate(true);
 		}
-		else map->setActivarRequadre_Regar(false);
+		else map->setActivateSquare_Irrigate(false);
 
 		if (key_Guardar)
 		{
-			map->GuardarMapa();
+			map->SaveMap();
 			cout << "Partida guardada!" << endl;
 			key_Guardar = false;
 		}
 		if (mouse_click)
 		{
-			if (map->getActivarRequadre())
+			if (map->getActivateSquare())
 			{
 				if (plantarNap) {
-					map->Plantar(NAP);
+					map->Plant(TURNIP);
 					cout << "NAP plantat!" << endl;
 				}
 				else if (plantarPatata) {
-					map->Plantar(PATATA);
+					map->Plant(POTATO);
 					cout << "PATATA plantat!" << endl;
 				}
 				else if (plantarTomata) {
-					map->Plantar(TOMATA);
+					map->Plant(TOMATO);
 					cout << "TOMATA plantat!" << endl;
 				}
 				else if (plantarBlat) {
-					map->Plantar(BLAT);
+					map->Plant(WHEAT);
 					cout << "BLAT plantat!" << endl;
 				}
 			}
-			else if (map->getActivarRequadre_Regar())
+			else if (map->getActivateSquare_Irrigate())
 			{
-				map->Regar();
+				map->Irrigate();
 			}
 			
 			mouse_click = false;
 		}
 		if (mouse_unClick)
 		{
-			map->ModificarData_Desplantar();
+			map->ModifyData_Disbudding();
 			cout << "Desplantat!" << endl;
 			mouse_unClick = false;
 		}
 
 
 		// CELES ESPECIALS
-		int contigutCela = map->ContigutCela();
+		int contigutCela = map->CellContent();
 
 		// Contenidor negocis
 		if (contigutCela == 295)
@@ -299,14 +299,14 @@ void Granja::Update()
 	cout << "Surt de granja" << endl;
 }
 
-void Granja::EscriurePosicio(Direcio direcio, Mapa* map, bool actiu)
+void Granja::EscriurePosicio(Direction direcio, Map* map, bool actiu)
 {
 	switch (direcio)
 	{
-	case NORD: cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "NORD"; break;
-	case SUD: cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "SUD"; break;
-	case OEST: cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "OEST"; break;
-	case EST: cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "EST"; break;
+	case NORTH: cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "NORD"; break;
+	case SOUTH: cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "SUD"; break;
+	case WEST: cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "OEST"; break;
+	case EAST: cout << "JugadorX:" << _posMonX << ", JugadorY:" << _posMonY << ", Dir:" << "EST"; break;
 	default: break;
 	}
 

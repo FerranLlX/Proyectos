@@ -63,7 +63,7 @@ Video::Video()
 
 	//_window = SDL_CreateWindow("Harvest moon", 2550, 350, TAMANY_WORLD_W, TAMANY_WORLD_H, SDL_WINDOW_SHOWN);
 	//_window = SDL_CreateWindow("Harvest moon", 1550, 50, CAMERA_W, CAMERA_H, SDL_WINDOW_SHOWN);
-	_window = SDL_CreateWindow("Harvest moon", 1400, 50, MIDA_CAMERA_W, MIDA_CAMERA_H, SDL_WINDOW_SHOWN);
+	_window = SDL_CreateWindow("Harvest moon", 1400, 50, SIZE_CAMERA_W, SIZE_CAMERA_H, SDL_WINDOW_SHOWN);
 	//_window = SDL_CreateWindow("Harvest moon", 1000, 50, 1000, 1000, SDL_WINDOW_SHOWN);
 	_renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
 }

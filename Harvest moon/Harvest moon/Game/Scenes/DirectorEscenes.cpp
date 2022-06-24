@@ -82,7 +82,7 @@ DirectorEscenes::~DirectorEscenes()
 {
 }
 
-DirectorEscenes::DirectorEscenes(Video* video, ResourceManager* rscManager, Jugador* jugador)
+DirectorEscenes::DirectorEscenes(Video* video, ResourceManager* rscManager, Player* jugador)
 {
 	_vectorEscenes.resize(NUM_SCENES);
 

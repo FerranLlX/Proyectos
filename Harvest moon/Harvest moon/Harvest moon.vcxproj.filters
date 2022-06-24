@@ -15,19 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game\Jugador\Jugador.cpp">
+    <ClCompile Include="Game\Player\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Adverse effects\Weather\Weather.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Inventory\Inventari.cpp">
+    <ClCompile Include="Game\Inventory\Inventory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Interface\Dialogue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Inventory\VegetalProduct\Cultiu.cpp">
+    <ClCompile Include="Game\Inventory\VegetalProduct\Crop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Graphics\AnimationManager.cpp">
@@ -108,13 +108,13 @@
     <ClCompile Include="Game\Scenes\Poble\AnimalShop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Mapa\Mapa.cpp">
+    <ClCompile Include="Game\Map\Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Mapa\Tileset.cpp">
+    <ClCompile Include="Game\Map\Tileset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Mapa\Layer.cpp">
+    <ClCompile Include="Game\Map\Layer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_Others\Llibreries\tinyxml2.cpp">
@@ -137,19 +137,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\Jugador\Jugador.h">
+    <ClInclude Include="Game\Player\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Adverse effects\Weather\Weather.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Inventory\Inventari.h">
+    <ClInclude Include="Game\Inventory\Inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Interface\Dialogue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Inventory\VegetalProduct\Cultiu.h">
+    <ClInclude Include="Game\Inventory\VegetalProduct\Crop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Graphics\AnimationManager.h">
@@ -233,13 +233,13 @@
     <ClInclude Include="Game\Scenes\Poble\AnimalShop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Mapa\Mapa.h">
+    <ClInclude Include="Game\Map\Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Mapa\Tileset.h">
+    <ClInclude Include="Game\Map\Tileset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Mapa\Layer.h">
+    <ClInclude Include="Game\Map\Layer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="_Others\Llibreries\tinyxml2.h">
@@ -263,16 +263,16 @@
     <ClInclude Include="Game\Adverse effects\Weather\TypesWeather.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Inventory\VegetalProduct\Llavor.h">
+    <ClInclude Include="Game\Inventory\VegetalProduct\TypeSeeds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Jugador\Direccio.h">
+    <ClInclude Include="Game\Player\Direction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scenes\LlistaEscenes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Jugador\LlistaAnimacions.h">
+    <ClInclude Include="Game\Player\ListAnimations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Input\Controls.h">

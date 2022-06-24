@@ -76,15 +76,15 @@
 #define TILE_W 16
 #define TILE_H 16
 
-#define JUGADOR_W 16
-#define JUGADOR_H 32
+#define PLAYER_W 16
+#define PLAYER_H 32
 
-// Resolució de la Game Boy Color 160×144 pixels.
+// Game Boy Color resolution  160×144 pixels.
 // TILES (16*16)=	Width 10 tiles	*	Heigth 9 tiles
-// En pixels	=	160px			*	144px			== Resolució de la GBC
-#define MIDA_CAMERA_W 160 * 3	// 480
-#define MIDA_CAMERA_H 144 * 3	// 432
+// In pixels	=	160px			*	144px			== resolution of GBC
+#define SIZE_CAMERA_W 160 * 3	// 480
+#define SIZE_CAMERA_H 144 * 3	// 432
 
 // WW i WH
-#define TAMANY_WORLD_W 49 * TILE_W	// 784
-#define TAMANY_WORLD_H 49 * TILE_H	// 784
+#define SIZE_WORLD_W 49 * TILE_W	// 784
+#define SIZE_WORLD_H 49 * TILE_H	// 784

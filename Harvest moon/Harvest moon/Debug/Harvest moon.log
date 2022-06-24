@@ -1,5 +1,47 @@
-﻿  Inventari.cpp
-  Jugador.cpp
+﻿  main.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  DirectorEscenes.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  Escena.cpp
+  AnimalShop.cpp
+  Carpenter.cpp
+  Church.cpp
+  FlowerShop.cpp
+  CasetaEines.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  Cova.cpp
+  CovaProfunda.cpp
+  CovaSpa.cpp
+  CovaTapada.cpp
+  EstableGallines.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  EstableVaques.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  Casa.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  Crop.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Inventory\VegetalProduct\Crop.h(6,10): fatal error C1083: No se puede abrir el archivo incluir: '../../Mapa/Tileset.h': No such file or directory
+  Dialogue.cpp
+  Video.cpp
+  Inventory.cpp
+  Player.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  Generando código...
+  Compilando...
+  Intro.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  Granja.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Scenes\Granja\Granja.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: '../../Mapa/Mapa.h': No such file or directory
+  MainMenu.cpp
+  JuiceBar.cpp
+  Poble.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Player\Player.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: '../Mapa/Mapa.h': No such file or directory
+  Restaurant.cpp
+  ToolShop.cpp
+  Layer.cpp
+  Map.cpp
+C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Inventory\VegetalProduct\Crop.h(6,10): fatal error C1083: No se puede abrir el archivo incluir: '../../Mapa/Tileset.h': No such file or directory
+  Tileset.cpp
+  Proves.cpp
   Timer.cpp
   Generando código...
-  Harvest moon.vcxproj -> C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Debug\Harvest moon.exe

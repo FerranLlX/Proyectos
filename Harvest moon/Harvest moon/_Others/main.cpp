@@ -18,7 +18,7 @@ int main(int argc, char* args[]) {
 	video->setResourceManager(rscManager);
 	rscManager->setRender(video->getRender());
 
-	Jugador* player = new Jugador(video, rscManager);
+	Player* player = new Player(video, rscManager);
 	DirectorEscenes* sceneDirector = DirectorEscenes::getInstance(video, rscManager, player);
 
 	InputManager* inputManager = new InputManager();

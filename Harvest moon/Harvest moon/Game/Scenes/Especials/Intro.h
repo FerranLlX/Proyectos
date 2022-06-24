@@ -14,12 +14,12 @@ public:
 	void Render();
 	void Update();
 
-	void setJugador(Jugador* jugador) { _jugador = jugador; };
+	void setJugador(Player* jugador) { _jugador = jugador; };
 	EscenaEnum getNumEscena() { return _numEscenaQueVullAnar; };
 
 
 private:
 	int _idImatgeIntro;
-	Jugador* _jugador;
+	Player* _jugador;
 	EscenaEnum _numEscenaQueVullAnar;
 };

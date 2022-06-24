@@ -4,7 +4,7 @@
 
 #include "../../Engine/Graphics/Video.h"
 #include "../../Engine/Graphics/ResourceManager.h"
-#include "../Jugador/Jugador.h"
+#include "../Player/Player.h"
 #include "Escena.h"
 #include "LlistaEscenes.h"
 
@@ -15,8 +15,8 @@ using namespace std;
 class DirectorEscenes {
 
 public:
-	static DirectorEscenes* getInstance(Video* video, ResourceManager* rscManager, Jugador* jugador) {
-		if (_directorEscenesInstance == NULL) _directorEscenesInstance = new DirectorEscenes(video, rscManager, jugador);
+	static DirectorEscenes* getInstance(Video* video, ResourceManager* rscManager, Player* player) {
+		if (_directorEscenesInstance == NULL) _directorEscenesInstance = new DirectorEscenes(video, rscManager, player);
 		return _directorEscenesInstance;
 	};  // Gets Singleton instance}
 		
@@ -34,7 +34,7 @@ public:
 
 
 protected:
-	DirectorEscenes(Video* video, ResourceManager* rscManager, Jugador* jugador);
+	DirectorEscenes(Video* video, ResourceManager* rscManager, Player* player);
 
 
 private:

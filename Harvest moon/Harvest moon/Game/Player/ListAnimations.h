@@ -1,0 +1,18 @@
+#pragma once
+
+enum ActiveAnimation
+{
+	IDLE,
+	WALK,
+	RUN,
+	HARVEST_FRUIT,
+	WIPE_SWEAT,
+	TIRED,
+	EXHAUST,
+	DRINK,
+	JUMP,
+	CARRY_OBJECT,
+	EXERCISES,
+	CHANGE_ITEM,
+	EAT
+};
