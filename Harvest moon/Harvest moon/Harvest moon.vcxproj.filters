@@ -51,61 +51,61 @@
     <ClCompile Include="_Others\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Especials\Intro.cpp">
+    <ClCompile Include="Game\Scenes\Special\Intro.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Especials\MainMenu.cpp">
+    <ClCompile Include="Game\Scenes\Special\MainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Granja\Casa.cpp">
+    <ClCompile Include="Game\Scenes\Farm\House.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Granja\Granja.cpp">
+    <ClCompile Include="Game\Scenes\Farm\Farm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Granja\EstableVaques.cpp">
+    <ClCompile Include="Game\Scenes\Farm\BarnCow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Granja\EstableGallines.cpp">
+    <ClCompile Include="Game\Scenes\Farm\BarnChicken.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Granja\CasetaEines.cpp">
+    <ClCompile Include="Game\Scenes\Farm\ToolHouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Cova\Cova.cpp">
+    <ClCompile Include="Game\Scenes\Cave\Cave.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Cova\CovaTapada.cpp">
+    <ClCompile Include="Game\Scenes\Cave\CaveCovered.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Cova\CovaSpa.cpp">
+    <ClCompile Include="Game\Scenes\Cave\CaveSpa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Cova\CovaProfunda.cpp">
+    <ClCompile Include="Game\Scenes\Cave\CaveDeep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Poble\Poble.cpp">
+    <ClCompile Include="Game\Scenes\Town\Town.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Poble\FlowerShop.cpp">
+    <ClCompile Include="Game\Scenes\Town\FlowerShop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Poble\JuiceBar.cpp">
+    <ClCompile Include="Game\Scenes\Town\JuiceBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Poble\Carpenter.cpp">
+    <ClCompile Include="Game\Scenes\Town\Carpenter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Poble\Church.cpp">
+    <ClCompile Include="Game\Scenes\Town\Church.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Poble\ToolShop.cpp">
+    <ClCompile Include="Game\Scenes\Town\ToolShop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Poble\Restaurant.cpp">
+    <ClCompile Include="Game\Scenes\Town\Restaurant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Poble\AnimalShop.cpp">
+    <ClCompile Include="Game\Scenes\Town\AnimalShop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Map\Map.cpp">
@@ -123,13 +123,13 @@
     <ClCompile Include="Game\Inventory\Tools\Tool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Escena.cpp">
+    <ClCompile Include="Game\Scenes\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\DirectorEscenes.cpp">
+    <ClCompile Include="Game\Scenes\SceneDirector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scenes\Especials\Proves.cpp">
+    <ClCompile Include="Game\Scenes\Special\Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Timer\Timer.cpp">
@@ -176,61 +176,61 @@
     <ClInclude Include="_Others\Definicions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Especials\Intro.h">
+    <ClInclude Include="Game\Scenes\Special\Intro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Especials\MainMenu.h">
+    <ClInclude Include="Game\Scenes\Special\MainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Granja\Casa.h">
+    <ClInclude Include="Game\Scenes\Farm\House.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Granja\Granja.h">
+    <ClInclude Include="Game\Scenes\Farm\Farm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Granja\EstableVaques.h">
+    <ClInclude Include="Game\Scenes\Farm\BarnCow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Granja\EstableGallines.h">
+    <ClInclude Include="Game\Scenes\Farm\BarnChicken.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Granja\CasetaEines.h">
+    <ClInclude Include="Game\Scenes\Farm\ToolHouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Cova\Cova.h">
+    <ClInclude Include="Game\Scenes\Cave\Cave.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Cova\CovaTapada.h">
+    <ClInclude Include="Game\Scenes\Cave\CaveCovered.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Cova\CovaSpa.h">
+    <ClInclude Include="Game\Scenes\Cave\CaveSpa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Cova\CovaProfunda.h">
+    <ClInclude Include="Game\Scenes\Cave\CaveDeep.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Poble\Poble.h">
+    <ClInclude Include="Game\Scenes\Town\Town.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Poble\FlowerShop.h">
+    <ClInclude Include="Game\Scenes\Town\FlowerShop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Poble\JuiceBar.h">
+    <ClInclude Include="Game\Scenes\Town\JuiceBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Poble\Carpenter.h">
+    <ClInclude Include="Game\Scenes\Town\Carpenter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Poble\Church.h">
+    <ClInclude Include="Game\Scenes\Town\Church.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Poble\ToolShop.h">
+    <ClInclude Include="Game\Scenes\Town\ToolShop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Poble\Restaurant.h">
+    <ClInclude Include="Game\Scenes\Town\Restaurant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Poble\AnimalShop.h">
+    <ClInclude Include="Game\Scenes\Town\AnimalShop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Map\Map.h">
@@ -248,13 +248,13 @@
     <ClInclude Include="Game\Inventory\Tools\Tool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Escena.h">
+    <ClInclude Include="Game\Scenes\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\DirectorEscenes.h">
+    <ClInclude Include="Game\Scenes\SceneDirector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\Especials\Proves.h">
+    <ClInclude Include="Game\Scenes\Special\Test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Adverse effects\Weather\Season.h">
@@ -269,7 +269,7 @@
     <ClInclude Include="Game\Player\Direction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scenes\LlistaEscenes.h">
+    <ClInclude Include="Game\Scenes\ListScenes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Player\ListAnimations.h">

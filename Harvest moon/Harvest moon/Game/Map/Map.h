@@ -7,7 +7,7 @@
 #include "Layer.h"
 #include "Tileset.h"
 #include "../Inventory/VegetalProduct/Crop.h"
-#include "../Player/Direccio.h"
+#include "../Player/Direction.h"
 
 #include<iostream>
 #include<fstream>

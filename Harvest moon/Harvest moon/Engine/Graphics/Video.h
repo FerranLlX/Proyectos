@@ -23,7 +23,7 @@ public:
 
 	void renderGraphic(int idTextura, Xywh* srcRect, Xywh* dstRect);
 	void clearScreen();	
-	void updateScreen();
+	void UpdateScreen();
 	void waitTime(int ms);
 	void close();
 

@@ -28,7 +28,7 @@ void Video::clearScreen()
 	SDL_RenderClear(_renderer);
 }
 
-void Video::updateScreen()
+void Video::UpdateScreen()
 {
 	SDL_RenderPresent(_renderer);
 }

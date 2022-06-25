@@ -6,7 +6,7 @@
 #include "../Engine/Timer/Timer.h"
 
 // Game
-#include "../Game/Scenes/DirectorEscenes.h"
+#include "../Game/Scenes/SceneDirector.h"
 
 
 int main(int argc, char* args[]) {
@@ -19,7 +19,7 @@ int main(int argc, char* args[]) {
 	rscManager->setRender(video->getRender());
 
 	Player* player = new Player(video, rscManager);
-	DirectorEscenes* sceneDirector = DirectorEscenes::getInstance(video, rscManager, player);
+	SceneDirector* sceneDirector = SceneDirector::getInstance(video, rscManager, player);
 
 	InputManager* inputManager = new InputManager();
 	Keyboard* keyboard = new Keyboard();
@@ -84,7 +84,7 @@ int main(int argc, char* args[]) {
 			// Update + render actual scene
 			sceneDirector->Update();
 			sceneDirector->Render();
-			video->updateScreen();
+			video->UpdateScreen();
 		}
 		lastTime = currentTime;
 
