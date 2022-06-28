@@ -1,0 +1,5 @@
+C:\Users\ferran.llobet\Desktop\OpenGL_imgui\Debug\OpenGL_imgui.exe
+C:\Users\ferran.llobet\Desktop\Pràctica (La Botiga del Heroi amb Dear imGUI)\Debug\OpenGL_imgui.exe
+D:\Classe\M07 - Desenvolupament d'interfícies\Projectes\Pràctica (La Botiga del Heroi amb Dear imGUI)\Debug\OpenGL_imgui.exe
+C:\Users\Ferran\Desktop\Pràctica (La Botiga del Heroi amb Dear imGUI)\Debug\OpenGL_imgui.exe
+C:\Users\Ferran\Desktop\ImGui - Prototype store\Debug\OpenGL_imgui.exe
