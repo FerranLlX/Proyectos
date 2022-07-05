@@ -10,14 +10,13 @@
 using namespace ImGui;
 using namespace std;
 
-//Carga una IMATGE i retorna el seu punter per gestionar-la
-		// file -> ruta(path) del fitxer a carregar
-		// RETORNA ImTextureID
+	//Load an IMAGE and return its pointer to manage it.
+		// file -> (path) of the file to be uploaded
+		// RETURN ImTextureID
 ImTextureID addImage(const char* file) {
 	GLuint       LoadedTexture = 0;
-	int			w, h, bytesPerPixel;
-	//Con esto lo mira en la carpeta.
-	unsigned char* pixels = stbi_load(file, &w, &h, &bytesPerPixel, 0);
+	int			w, h, bytesPixel;	
+	unsigned char* pixels = stbi_load(file, &w, &h, &bytesPixel, 0);
 	if (!pixels) {
 		std::cout << "Error when loading image: " << file << ": stbi_load ERROR." << std::endl;
 		return NULL;
@@ -27,7 +26,7 @@ ImTextureID addImage(const char* file) {
 		glGenTextures(1, &newTextureID);
 		glBindTexture(GL_TEXTURE_2D, newTextureID);
 		GLint Mode = GL_RGB;
-		if (bytesPerPixel == 4) Mode = GL_RGBA;
+		if (bytesPixel == 4) Mode = GL_RGBA;
 		glTexImage2D(GL_TEXTURE_2D, 0, Mode, w, h, 0, Mode, GL_UNSIGNED_BYTE, pixels);
 		glGenerateMipmap(GL_TEXTURE_2D);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -38,13 +37,13 @@ ImTextureID addImage(const char* file) {
 		stbi_image_free(pixels);
 		if (!newTextureID)
 		{
-			std::cerr << "Impossible crear textura: Problemes amb OpenGL." << std::endl;
+			std::cerr << "Unable to create texture: Problems with OpenGL." << std::endl;
 		}
 		return (ImTextureID)(intptr_t)newTextureID;
 	}
 }
 
-struct Productes
+struct Products
 {
 	char type[10];
 	int amount;
@@ -55,17 +54,17 @@ struct Productes
 };
 
 
-void CarregarVectorItems(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesTot);
-void FiltrarTot(vector<string>* vectorObjectesTot, vector<string>* vectorObjectesMostrar);
-void FiltrarArmes(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar);
-void FiltrarArmadures(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar);
-void FiltrarEscuts(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar);
-void FiltrarItems(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar);
-Productes CarregarInformacioItemSelecionat(int i, Productes producteAMostrar, vector<Productes>* vectorAmbTotaLinformacio);
-void FiltrarTotInventari(vector<Productes>* vectorInventari, vector<string>* vectorObjectesMostrar);
-void ComprovarSiEnTenimUnIgualIAfegirInventari(vector<Productes>* vectorInventari, Productes* producteSelecionat);
-Productes CarregarInformacioItemSelecionatInventari(int posicio, Productes producteAMostrar, vector<Productes>* vectorInventari);
-void EliminarItemInventari(vector<Productes>* vectorInventari, Productes* producteSelecionat, int* dinersTotals);
+void LoadVectorItems(vector<Products>* vectorWithAllInformation, vector<string>* vectorObjectsAll);
+void FilterAll(vector<string>* vectorObjectsAll, vector<string>* vectorObjectsShow);
+void FilterWeapons(vector<Products>* vectorWithAllInformation, vector<string>* vectorObjectsShow);
+void FilterArmors(vector<Products>* vectorWithAllInformation, vector<string>* vectorObjectsShow);
+void FilterShields(vector<Products>* vectorWithAllInformation, vector<string>* vectorObjectsShow);
+void FilterItems(vector<Products>* vectorWithAllInformation, vector<string>* vectorObjectsShow);
+Products LoadInformationItemSelected(int i, Products productsShow, vector<Products>* vectorWithAllInformation);
+void FilterAllInventory(vector<Products>* vectorInventory, vector<string>* vectorObjectsShow);
+void CheckIdenticalItemAndAddInventory(vector<Products>* vectorInventory, Products* productSelected);
+Products LoadInformationInventorySelectedItem(int position, Products vectorObjectsShow, vector<Products>* vectorInventory);
+void DeleteItemInventory(vector<Products>* vectorInventory, Products* productSelected, int* totalMoney);
 
 
 // Main code
@@ -98,64 +97,56 @@ int main(int argc, char* args[])
 
 
 	// ----------------------------- BOTIGA -----------------
-	static bool showBotigaComprar = true;
-	static bool showBotigaVendre = false;
-	static bool showImatge = true;
+	static bool showBuyShop = true;
+	static bool showSellShop = false;
+	static bool showImage = true;
 	static bool p_open = false;
 	static bool showSimpleLayout = false;
 
-	vector<Productes>* vectorAmbTotaLinformacio = new vector<Productes>;
-	vector<string>* vectorObjectesTot = new vector<string>;
-	vector<string>* vectorObjectesMostrar = new vector<string>;
-	CarregarVectorItems(vectorAmbTotaLinformacio, vectorObjectesTot);
-	vector<Productes>* vectorInventari = new vector<Productes>;
+	vector<Products>* vectorWithAllInformation = new vector<Products>;
+	vector<string>* vectorAllObjects = new vector<string>;
+	vector<string>* vectorShowObjects = new vector<string>;
+	LoadVectorItems(vectorWithAllInformation, vectorAllObjects);
+	vector<Products>* vectorInventory = new vector<Products>;
 
-	Productes producteAMostrar;
-	producteAMostrar = { "---", 0, "---", 0, 0, "---" };
+	Products productsToDisplay;
+	productsToDisplay = { "---", 0, "---", 0, 0, "---" };
 
-	// Mida i posicio finestra botiga
-	float midaX_Botiga = 900;
-	float midaY_Botiga = 600;
-	float posX_Botiga = 100;
-	float posY_Botiga = 100;
+	float sizeX_Shop = 900;
+	float sizeY_Shop = 600;
+	float posX_Shop = 100;
+	float posY_Shop = 100;
+		
+	float sizeX_ListItems = 350;
+	float sizeY_ListItems = 250;
+	float posX_Shop_ListItems = posX_Shop + ((sizeX_Shop - sizeX_ListItems) / 2);
+	float posY_Shop_ListItems = posY_Shop + ((sizeY_Shop - sizeY_ListItems) / 4);
 
-	// Mida i posicio finestra llista items
-	float midaX_LlistaItems = 350;
-	float midaY_LlistaItems = 250;
-	float posX_Botiga_llistaItems = posX_Botiga + ((midaX_Botiga - midaX_LlistaItems) / 2);
-	float posY_Botiga_llistaItems = posY_Botiga + ((midaY_Botiga - midaY_LlistaItems) / 4);
+	float sizeX_ImageItem = 350;
+	float sizeY_ImageItem = 150;
+	float posX_Image = posX_Shop_ListItems - 15;
+	float posY_Image = posY_Shop_ListItems + 20 + sizeY_ListItems;
 
-	// Mida i posicio imatge	
-	float midaX_ImatgeItem = 350;
-	float midaY_ImatgeItem = 150;
-	float posX_Imatge = posX_Botiga_llistaItems - 15;
-	float posY_Imatge = posY_Botiga_llistaItems + 20 + midaY_LlistaItems;
+	float sizeX_ListBuy = 220;
+	float sizeY_ListBuy = 420;
+	float posX_ListBuy = (sizeX_Shop / 6) * 5;
+	float posY_ListBuy = posY_Shop_ListItems;
 
-	// Mida i posicio llista caracteristiques/comprar
-	float midaX_LlistaComprar = 220;
-	float midaY_LlistaComprar = 420;
-	float posX_LlistaComprar = (midaX_Botiga / 6) * 5;
-	float posY_LlistaComprar = posY_Botiga_llistaItems;
+	float sizeX_Money = 150;
+	float sizeY_Money = 70;
+	float posX_Money = posX_Shop - 10;
+	float posY_Money = posY_Shop - 15;
 
-	// Mida i posicio Requadre DINERS
-	float midaX_Diners = 150;
-	float midaY_Diners = 70;
-	float posX_Diners = posX_Botiga - 10;
-	float posY_Diners = posY_Botiga - 15;
+	float sizeX_NameShop = sizeX_Money;
+	float sizeY_NameShop = sizeY_Money;
+	float posX_NameShop = posX_Shop_ListItems + (sizeX_Money / 3 * 2);
+	float posY_NameShop = posY_Money;
 
-	// Mida i posicio Requadre NOM_BOTIGA
-	float midaX_NomBotiga = midaX_Diners;
-	float midaY_NomBotiga = midaY_Diners;
-	float posX_NomBotiga = posX_Botiga_llistaItems + (midaX_Diners / 3 * 2);
-	float posY_NomBotiga = posY_Diners;
+	float sizeX_TextBuy = sizeX_Money;
+	float sizeY_TextBuy = sizeY_Money;
+	float posX_TextBuy = sizeX_Shop + posX_Shop - sizeX_Money + 10;
+	float posY_TextBuy = posY_Money;
 
-	// Mida i posicio Requadre COMPRAR
-	float midaX_TextComprar = midaX_Diners;
-	float midaY_TextComprar = midaY_Diners;
-	float posX_TextComprar = midaX_Botiga + posX_Botiga - midaX_Diners + 10;
-	float posY_TextComprar = posY_Diners;
-
-	// Mida icones
 	float midaX_Icona = 15;
 	float midaY_Icona = 15;
 
@@ -235,15 +226,15 @@ int main(int argc, char* args[])
 
 		// ------------------------------ BOTIGA ---------------------------------
 
-		if (showBotigaComprar)
+		if (showBuyShop)
 		{
-			SetNextWindowSizeConstraints(ImVec2(midaX_Botiga, midaY_Botiga), ImVec2(midaX_Botiga, midaY_Botiga));
-			SetNextWindowPos(ImVec2(posX_Botiga, posY_Botiga));
-			Begin("Botiga", &showBotigaComprar, ImGuiWindowFlags_Personalitzat0_Botiga);
+			SetNextWindowSizeConstraints(ImVec2(sizeX_Shop, sizeY_Shop), ImVec2(sizeX_Shop, sizeY_Shop));
+			SetNextWindowPos(ImVec2(posX_Shop, posY_Shop));
+			Begin("Botiga", &showBuyShop, ImGuiWindowFlags_Personalitzat0_Botiga);
 			{
-				SetNextWindowSizeConstraints(ImVec2(midaX_LlistaItems, midaY_LlistaItems), ImVec2(midaX_LlistaItems, midaY_LlistaItems));
-				SetNextWindowPos(ImVec2(posX_Botiga_llistaItems, posY_Botiga_llistaItems));
-				Begin("LlistaComprar", &showBotigaComprar, ImGuiWindowFlags_Personalitzat1_Llista);
+				SetNextWindowSizeConstraints(ImVec2(sizeX_ListItems, sizeY_ListItems), ImVec2(sizeX_ListItems, sizeY_ListItems));
+				SetNextWindowPos(ImVec2(posX_Shop_ListItems, posY_Shop_ListItems));
+				Begin("LlistaComprar", &showBuyShop, ImGuiWindowFlags_Personalitzat1_Llista);
 				{
 					ImGuiTabBarFlags tab_bar_flags = ImGuiTabBarFlags_None;
 					if (BeginTabBar("OpcionsBotigaComprar", tab_bar_flags))
@@ -251,31 +242,31 @@ int main(int argc, char* args[])
 						if (BeginTabItem("Tot"))
 						{
 							Text("Llista de tots els objectes de la botiga.");
-							FiltrarTot(vectorObjectesTot, vectorObjectesMostrar);
+							FilterAll(vectorAllObjects, vectorShowObjects);
 							EndTabItem();
 						}
 						if (BeginTabItem("Armes"))
 						{
 							Text("Llista de totes les armes.");
-							FiltrarArmes(vectorAmbTotaLinformacio, vectorObjectesMostrar);
+							FilterWeapons(vectorWithAllInformation, vectorShowObjects);
 							EndTabItem();
 						}
 						if (BeginTabItem("Armadures"))
 						{
 							Text("Llista de totes les armadures.");
-							FiltrarArmadures(vectorAmbTotaLinformacio, vectorObjectesMostrar);
+							FilterArmors(vectorWithAllInformation, vectorShowObjects);
 							EndTabItem();
 						}
 						if (BeginTabItem("Escuts"))
 						{
 							Text("Llista de tots els escuts.");
-							FiltrarEscuts(vectorAmbTotaLinformacio, vectorObjectesMostrar);
+							FilterShields(vectorWithAllInformation, vectorShowObjects);
 							EndTabItem();
 						}
 						if (BeginTabItem("Items"))
 						{
 							Text("Llista de tots els items.");
-							FiltrarItems(vectorAmbTotaLinformacio, vectorObjectesMostrar);
+							FilterItems(vectorWithAllInformation, vectorShowObjects);
 							EndTabItem();
 						}
 						EndTabBar();
@@ -283,37 +274,37 @@ int main(int argc, char* args[])
 
 
 					{
-						int sizeObjectes = vectorObjectesMostrar->size();
+						int sizeObjectes = vectorShowObjects->size();
 						for (int i = 0; i < sizeObjectes; i++)
 						{
-							const char* nomTemo = vectorObjectesMostrar->at(i).c_str();
+							const char* nomTemo = vectorShowObjects->at(i).c_str();
 
 							if (Button(nomTemo, ImVec2(320, 50)))
 							{
-								producteAMostrar = CarregarInformacioItemSelecionat(i, producteAMostrar, vectorAmbTotaLinformacio);
+								productsToDisplay = LoadInformationItemSelected(i, productsToDisplay, vectorWithAllInformation);
 							}
 						}
 					}
 
 					// Imatge de sota
-					SetNextWindowSizeConstraints(ImVec2(midaX_ImatgeItem, midaY_ImatgeItem), ImVec2(midaX_ImatgeItem, midaY_ImatgeItem));
-					SetNextWindowPos(ImVec2(posX_Imatge, posY_Imatge));
-					Begin("Imatge i button imatge", &showImatge, ImGuiWindowFlags_Personalitzat2);
-					Image(IMG_forja, ImVec2(midaX_ImatgeItem, midaY_ImatgeItem));
+					SetNextWindowSizeConstraints(ImVec2(sizeX_ImageItem, sizeY_ImageItem), ImVec2(sizeX_ImageItem, sizeY_ImageItem));
+					SetNextWindowPos(ImVec2(posX_Image, posY_Image));
+					Begin("Imatge i button imatge", &showImage, ImGuiWindowFlags_Personalitzat2);
+					Image(IMG_forja, ImVec2(sizeX_ImageItem, sizeY_ImageItem));
 					End();
 				}
 				End();
 
 
-				SetNextWindowSizeConstraints(ImVec2(midaX_LlistaComprar, midaY_LlistaComprar), ImVec2(midaX_LlistaComprar, midaY_LlistaComprar));
-				SetNextWindowPos(ImVec2(posX_LlistaComprar, posY_LlistaComprar));
-				Begin("LlistaCaracteristiquesComprar", &showBotigaComprar, ImGuiWindowFlags_Personalitzat3);
+				SetNextWindowSizeConstraints(ImVec2(sizeX_ListBuy, sizeY_ListBuy), ImVec2(sizeX_ListBuy, sizeY_ListBuy));
+				SetNextWindowPos(ImVec2(posX_ListBuy, posY_ListBuy));
+				Begin("LlistaCaracteristiquesComprar", &showBuyShop, ImGuiWindowFlags_Personalitzat3);
 				{
 					// Icona + sameline + text + textQuantitat				
-					Begin("Icones", &showImatge, ImGuiWindowFlags_Personalitzat2);
+					Begin("Icones", &showImage, ImGuiWindowFlags_Personalitzat2);
 					{
 						Text("Nom objecte selecionat:");
-						Text("%s", producteAMostrar.name);
+						Text("%s", productsToDisplay.name);
 						Text("");
 						Text("");
 
@@ -346,7 +337,7 @@ int main(int argc, char* args[])
 						Text("");
 						Text("");
 						Text("Descripcio de l'objecte ....");
-						Text(producteAMostrar.description);
+						Text(productsToDisplay.description);
 						Text("............................");
 						Text("............................");
 						Text("");
@@ -356,17 +347,17 @@ int main(int argc, char* args[])
 
 
 
-						Text("PREU: %d", producteAMostrar.priceBuy);
+						Text("PREU: %d", productsToDisplay.priceBuy);
 						SameLine();
 						Image(ICON_moneda, ImVec2(midaX_Icona, midaY_Icona));
 
 
 						if (Button("COMPRAR##Item", ImVec2(200, 50)))
 						{
-							if (!(dinersTotals < producteAMostrar.priceBuy))
+							if (!(dinersTotals < productsToDisplay.priceBuy))
 							{
-								dinersTotals = dinersTotals - producteAMostrar.priceBuy;
-								ComprovarSiEnTenimUnIgualIAfegirInventari(vectorInventari, &producteAMostrar);
+								dinersTotals = dinersTotals - productsToDisplay.priceBuy;
+								CheckIdenticalItemAndAddInventory(vectorInventory, &productsToDisplay);
 							}
 						}
 					}
@@ -377,9 +368,9 @@ int main(int argc, char* args[])
 
 				// REQUADRES SUPERIORS					
 				{
-					SetNextWindowSizeConstraints(ImVec2(midaX_Diners, midaY_Diners), ImVec2(midaX_Diners, midaY_Diners));
-					SetNextWindowPos(ImVec2(posX_Diners, posY_Diners));
-					Begin("DinersTotals", &showBotigaComprar, ImGuiWindowFlags_Personalitzat3);
+					SetNextWindowSizeConstraints(ImVec2(sizeX_Money, sizeY_Money), ImVec2(sizeX_Money, sizeY_Money));
+					SetNextWindowPos(ImVec2(posX_Money, posY_Money));
+					Begin("DinersTotals", &showBuyShop, ImGuiWindowFlags_Personalitzat3);
 					{
 						Text("Diners: %d", dinersTotals);
 						SameLine();
@@ -387,23 +378,23 @@ int main(int argc, char* args[])
 					}
 					End();
 
-					SetNextWindowSizeConstraints(ImVec2(midaX_NomBotiga, midaY_NomBotiga), ImVec2(midaX_NomBotiga, midaY_NomBotiga));
-					SetNextWindowPos(ImVec2(posX_NomBotiga, posY_NomBotiga));
-					Begin("NomBotiga", &showBotigaComprar, ImGuiWindowFlags_Personalitzat3);
+					SetNextWindowSizeConstraints(ImVec2(sizeX_NameShop, sizeY_NameShop), ImVec2(sizeX_NameShop, sizeY_NameShop));
+					SetNextWindowPos(ImVec2(posX_NameShop, posY_NameShop));
+					Begin("NomBotiga", &showBuyShop, ImGuiWindowFlags_Personalitzat3);
 					{
 						Text("Nom botiga");
 					}
 					End();
 
-					SetNextWindowSizeConstraints(ImVec2(midaX_TextComprar, midaY_TextComprar), ImVec2(midaX_TextComprar, midaY_TextComprar));
-					SetNextWindowPos(ImVec2(posX_TextComprar, posY_TextComprar));
-					Begin("TextComprar", &showBotigaComprar, ImGuiWindowFlags_Personalitzat3);
+					SetNextWindowSizeConstraints(ImVec2(sizeX_TextBuy, sizeY_TextBuy), ImVec2(sizeX_TextBuy, sizeY_TextBuy));
+					SetNextWindowPos(ImVec2(posX_TextBuy, posY_TextBuy));
+					Begin("TextComprar", &showBuyShop, ImGuiWindowFlags_Personalitzat3);
 					{
 						if (Button("COMPRAR##CanviAVendre", ImVec2(150, 50)))
 						{
-							showBotigaComprar = false;
-							showBotigaVendre = true;
-							producteAMostrar = { "---", 0, "---", 0, 0, "---" };
+							showBuyShop = false;
+							showSellShop = true;
+							productsToDisplay = { "---", 0, "---", 0, 0, "---" };
 						}
 
 					}
@@ -413,15 +404,15 @@ int main(int argc, char* args[])
 			End();
 		}
 
-		if (showBotigaVendre)
+		if (showSellShop)
 		{
-			SetNextWindowSizeConstraints(ImVec2(midaX_Botiga, midaY_Botiga), ImVec2(midaX_Botiga, midaY_Botiga));
-			SetNextWindowPos(ImVec2(posX_Botiga, posY_Botiga));
-			Begin("Botiga", &showBotigaVendre, ImGuiWindowFlags_Personalitzat0_Botiga);
+			SetNextWindowSizeConstraints(ImVec2(sizeX_Shop, sizeY_Shop), ImVec2(sizeX_Shop, sizeY_Shop));
+			SetNextWindowPos(ImVec2(posX_Shop, posY_Shop));
+			Begin("Botiga", &showSellShop, ImGuiWindowFlags_Personalitzat0_Botiga);
 			{
-				SetNextWindowSizeConstraints(ImVec2(midaX_LlistaItems, midaY_LlistaItems), ImVec2(midaX_LlistaItems, midaY_LlistaItems));
-				SetNextWindowPos(ImVec2(posX_Botiga_llistaItems, posY_Botiga_llistaItems));
-				Begin("LlistaComprar", &showBotigaVendre, ImGuiWindowFlags_Personalitzat1_Llista);
+				SetNextWindowSizeConstraints(ImVec2(sizeX_ListItems, sizeY_ListItems), ImVec2(sizeX_ListItems, sizeY_ListItems));
+				SetNextWindowPos(ImVec2(posX_Shop_ListItems, posY_Shop_ListItems));
+				Begin("LlistaComprar", &showSellShop, ImGuiWindowFlags_Personalitzat1_Llista);
 				{
 					ImGuiTabBarFlags tab_bar_flags = ImGuiTabBarFlags_None;
 					if (BeginTabBar("OpcionsBotigaComprar", tab_bar_flags))
@@ -429,7 +420,7 @@ int main(int argc, char* args[])
 						if (BeginTabItem("Tot"))
 						{
 							Text("Llista de tots els objectes de l'inventari.");
-							FiltrarTotInventari(vectorInventari, vectorObjectesMostrar);
+							FilterAllInventory(vectorInventory, vectorShowObjects);
 							EndTabItem();
 						}
 
@@ -438,37 +429,37 @@ int main(int argc, char* args[])
 
 					// Listbox manual
 					{
-						int sizeObjectes = vectorObjectesMostrar->size();
+						int sizeObjectes = vectorShowObjects->size();
 						for (int i = 0; i < sizeObjectes; i++)
 						{
-							const char* nomTemo = vectorObjectesMostrar->at(i).c_str();
+							const char* nomTemo = vectorShowObjects->at(i).c_str();
 
 							if (Button(nomTemo, ImVec2(320, 50)))
 							{
-								producteAMostrar = CarregarInformacioItemSelecionatInventari(i, producteAMostrar, vectorInventari);
+								productsToDisplay = LoadInformationInventorySelectedItem(i, productsToDisplay, vectorInventory);
 							}
 						}
 					}
 
 					// Imatge de sota
-					SetNextWindowSizeConstraints(ImVec2(midaX_ImatgeItem, midaY_ImatgeItem), ImVec2(midaX_ImatgeItem, midaY_ImatgeItem));
-					SetNextWindowPos(ImVec2(posX_Imatge, posY_Imatge));
-					Begin("Imatge i button imatge", &showImatge, ImGuiWindowFlags_Personalitzat2);
-					Image(IMG_forja, ImVec2(midaX_ImatgeItem, midaY_ImatgeItem));
+					SetNextWindowSizeConstraints(ImVec2(sizeX_ImageItem, sizeY_ImageItem), ImVec2(sizeX_ImageItem, sizeY_ImageItem));
+					SetNextWindowPos(ImVec2(posX_Image, posY_Image));
+					Begin("Imatge i button imatge", &showImage, ImGuiWindowFlags_Personalitzat2);
+					Image(IMG_forja, ImVec2(sizeX_ImageItem, sizeY_ImageItem));
 					End();
 				}
 				End();
 
 
-				SetNextWindowSizeConstraints(ImVec2(midaX_LlistaComprar, midaY_LlistaComprar), ImVec2(midaX_LlistaComprar, midaY_LlistaComprar));
-				SetNextWindowPos(ImVec2(posX_LlistaComprar, posY_LlistaComprar));
-				Begin("LlistaCaracteristiquesComprar", &showBotigaVendre, ImGuiWindowFlags_Personalitzat3);
+				SetNextWindowSizeConstraints(ImVec2(sizeX_ListBuy, sizeY_ListBuy), ImVec2(sizeX_ListBuy, sizeY_ListBuy));
+				SetNextWindowPos(ImVec2(posX_ListBuy, posY_ListBuy));
+				Begin("LlistaCaracteristiquesComprar", &showSellShop, ImGuiWindowFlags_Personalitzat3);
 				{
 					// Icona + sameline + text + textQuantitat				
-					Begin("Icones", &showImatge, ImGuiWindowFlags_Personalitzat2);
+					Begin("Icones", &showImage, ImGuiWindowFlags_Personalitzat2);
 					{
 						Text("Nom objecte selecionat:");
-						Text("%s", producteAMostrar.name);
+						Text("%s", productsToDisplay.name);
 						Text("");
 						Text("");
 
@@ -501,7 +492,7 @@ int main(int argc, char* args[])
 						Text("");
 						Text("");
 						Text("Descripcio de l'objecte ....");
-						Text(producteAMostrar.description);
+						Text(productsToDisplay.description);
 						Text("............................");
 						Text("............................");
 						Text("");
@@ -511,14 +502,14 @@ int main(int argc, char* args[])
 
 
 
-						Text("PREU: %d", producteAMostrar.priceSell);
+						Text("PREU: %d", productsToDisplay.priceSell);
 						SameLine();
 						Image(ICON_moneda, ImVec2(midaX_Icona, midaY_Icona));
 
 
 						if (Button("VENDRE##Item", ImVec2(200, 50)))
 						{
-							EliminarItemInventari(vectorInventari, &producteAMostrar, &dinersTotals);
+							DeleteItemInventory(vectorInventory, &productsToDisplay, &dinersTotals);
 						}
 
 
@@ -529,31 +520,31 @@ int main(int argc, char* args[])
 
 				// REQUADRES SUPERIORS	
 				{
-					SetNextWindowSizeConstraints(ImVec2(midaX_Diners, midaY_Diners), ImVec2(midaX_Diners, midaY_Diners));
-					SetNextWindowPos(ImVec2(posX_Diners, posY_Diners));
-					Begin("TextVendre", &showBotigaVendre, ImGuiWindowFlags_Personalitzat3);
+					SetNextWindowSizeConstraints(ImVec2(sizeX_Money, sizeY_Money), ImVec2(sizeX_Money, sizeY_Money));
+					SetNextWindowPos(ImVec2(posX_Money, posY_Money));
+					Begin("TextVendre", &showSellShop, ImGuiWindowFlags_Personalitzat3);
 					{
 						if (Button("VENDRE##CanviAComprar", ImVec2(150, 50)))
 						{
-							showBotigaComprar = true;
-							showBotigaVendre = false;
-							producteAMostrar = { "---", 0, "---", 0, 0, "---" };
+							showBuyShop = true;
+							showSellShop = false;
+							productsToDisplay = { "---", 0, "---", 0, 0, "---" };
 						}
 
 					}
 					End();
 
-					SetNextWindowSizeConstraints(ImVec2(midaX_NomBotiga, midaY_NomBotiga), ImVec2(midaX_NomBotiga, midaY_NomBotiga));
-					SetNextWindowPos(ImVec2(posX_NomBotiga, posY_NomBotiga));
-					Begin("NomBotiga", &showBotigaVendre, ImGuiWindowFlags_Personalitzat3);
+					SetNextWindowSizeConstraints(ImVec2(sizeX_NameShop, sizeY_NameShop), ImVec2(sizeX_NameShop, sizeY_NameShop));
+					SetNextWindowPos(ImVec2(posX_NameShop, posY_NameShop));
+					Begin("NomBotiga", &showSellShop, ImGuiWindowFlags_Personalitzat3);
 					{
 						Text("Nom botiga");
 					}
 					End();
 
-					SetNextWindowSizeConstraints(ImVec2(midaX_TextComprar, midaY_TextComprar), ImVec2(midaX_TextComprar, midaY_TextComprar));
-					SetNextWindowPos(ImVec2(posX_TextComprar, posY_TextComprar));
-					Begin("DinersTotals", &showBotigaVendre, ImGuiWindowFlags_Personalitzat3);
+					SetNextWindowSizeConstraints(ImVec2(sizeX_TextBuy, sizeY_TextBuy), ImVec2(sizeX_TextBuy, sizeY_TextBuy));
+					SetNextWindowPos(ImVec2(posX_TextBuy, posY_TextBuy));
+					Begin("DinersTotals", &showSellShop, ImGuiWindowFlags_Personalitzat3);
 					{
 						Text("Diners: %d", dinersTotals);
 						SameLine();
@@ -569,14 +560,14 @@ int main(int argc, char* args[])
 		if (event.key.keysym.sym == SDLK_F1)
 		{
 			// COMPRAR
-			if (showBotigaComprar) showBotigaComprar = false;
-			else showBotigaComprar = true;
+			if (showBuyShop) showBuyShop = false;
+			else showBuyShop = true;
 		}
 		else if (event.key.keysym.sym == SDLK_F2)
 		{
 			// VENDRE
-			if (showBotigaVendre) showBotigaVendre = false;
-			else showBotigaVendre = true;
+			if (showSellShop) showSellShop = false;
+			else showSellShop = true;
 		}
 
 
@@ -607,9 +598,9 @@ int main(int argc, char* args[])
 }
 
 
-void CarregarVectorItems(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesTot) {
+void LoadVectorItems(vector<Products>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesTot) {
 
-	Productes producteTempo;
+	Products producteTempo;
 
 	producteTempo = { "Item", 5, "Chimaera Wing", 70, 35, "Returns you to the castle" };
 	vectorAmbTotaLinformacio->push_back(producteTempo);
@@ -673,7 +664,7 @@ void CarregarVectorItems(vector<Productes>* vectorAmbTotaLinformacio, vector<str
 }
 
 
-void FiltrarTot(vector<string>* vectorObjectesTot, vector<string>* vectorObjectesMostrar) {
+void FilterAll(vector<string>* vectorObjectesTot, vector<string>* vectorObjectesMostrar) {
 
 	int sizeMostrar = vectorObjectesMostrar->size();
 	if (sizeMostrar >= 1)
@@ -692,7 +683,7 @@ void FiltrarTot(vector<string>* vectorObjectesTot, vector<string>* vectorObjecte
 }
 
 
-void FiltrarArmes(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar) {
+void FilterWeapons(vector<Products>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar) {
 	int sizeMostrar = vectorObjectesMostrar->size();
 	if (sizeMostrar >= 1)
 	{
@@ -713,7 +704,7 @@ void FiltrarArmes(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* v
 }
 
 
-void FiltrarArmadures(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar) {
+void FilterArmors(vector<Products>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar) {
 	int sizeMostrar = vectorObjectesMostrar->size();
 	if (sizeMostrar >= 1)
 	{
@@ -734,7 +725,7 @@ void FiltrarArmadures(vector<Productes>* vectorAmbTotaLinformacio, vector<string
 }
 
 
-void FiltrarEscuts(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar) {
+void FilterShields(vector<Products>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar) {
 	int sizeMostrar = vectorObjectesMostrar->size();
 	if (sizeMostrar >= 1)
 	{
@@ -755,7 +746,7 @@ void FiltrarEscuts(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* 
 }
 
 
-void FiltrarItems(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar) {
+void FilterItems(vector<Products>* vectorAmbTotaLinformacio, vector<string>* vectorObjectesMostrar) {
 	int sizeMostrar = vectorObjectesMostrar->size();
 	if (sizeMostrar >= 1)
 	{
@@ -776,12 +767,12 @@ void FiltrarItems(vector<Productes>* vectorAmbTotaLinformacio, vector<string>* v
 }
 
 
-Productes CarregarInformacioItemSelecionat(int posicio, Productes producteAMostrar, vector<Productes>* vectorAmbTotaLinformacio) {
+Products LoadInformationItemSelected(int posicio, Products producteAMostrar, vector<Products>* vectorAmbTotaLinformacio) {
 	return producteAMostrar = vectorAmbTotaLinformacio->at(posicio);
 }
 
 
-void FiltrarTotInventari(vector<Productes>* vectorInventari, vector<string>* vectorObjectesMostrar) {
+void FilterAllInventory(vector<Products>* vectorInventari, vector<string>* vectorObjectesMostrar) {
 
 	int sizeMostrar = vectorObjectesMostrar->size();
 	if (sizeMostrar >= 1)
@@ -800,7 +791,7 @@ void FiltrarTotInventari(vector<Productes>* vectorInventari, vector<string>* vec
 }
 
 
-void ComprovarSiEnTenimUnIgualIAfegirInventari(vector<Productes>* vectorInventari, Productes* producteSelecionat) {
+void CheckIdenticalItemAndAddInventory(vector<Products>* vectorInventari, Products* producteSelecionat) {
 	int sizeInventari = vectorInventari->size();
 	bool trobat = false;
 
@@ -815,26 +806,26 @@ void ComprovarSiEnTenimUnIgualIAfegirInventari(vector<Productes>* vectorInventar
 
 		if (!trobat)
 		{
-			Productes producteTempo = *producteSelecionat;
+			Products producteTempo = *producteSelecionat;
 			producteTempo.amount = 1;
 			vectorInventari->push_back(producteTempo);
 		}
 
 	}
 	else {
-		Productes producteTempo = *producteSelecionat;
+		Products producteTempo = *producteSelecionat;
 		producteTempo.amount = 1;
 		vectorInventari->push_back(producteTempo);
 	}
 }
 
 
-Productes CarregarInformacioItemSelecionatInventari(int posicio, Productes producteAMostrar, vector<Productes>* vectorInventari) {
+Products LoadInformationInventorySelectedItem(int posicio, Products producteAMostrar, vector<Products>* vectorInventari) {
 	return producteAMostrar = vectorInventari->at(posicio);
 }
 
 
-void EliminarItemInventari(vector<Productes>* vectorInventari, Productes* producteSelecionat, int* dinersTotals) {
+void DeleteItemInventory(vector<Products>* vectorInventari, Products* producteSelecionat, int* dinersTotals) {
 	int sizeInventari = vectorInventari->size();
 
 	for (int i = 0; i < sizeInventari; i++)
