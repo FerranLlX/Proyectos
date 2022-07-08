@@ -227,11 +227,11 @@ int main(int argc, char* args[])
 		{
 			SetNextWindowSizeConstraints(ImVec2(sizeX_Shop, sizeY_Shop), ImVec2(sizeX_Shop, sizeY_Shop));
 			SetNextWindowPos(ImVec2(posX_Shop, posY_Shop));
-			Begin("Shop", &showBuyShop, ImGuiWindowFlags_Personalitzat0_Botiga);
+			Begin("Shop", &showBuyShop, ImGuiWindowFlags_Custom0_Shop);
 			{
 				SetNextWindowSizeConstraints(ImVec2(sizeX_ListItems, sizeY_ListItems), ImVec2(sizeX_ListItems, sizeY_ListItems));
 				SetNextWindowPos(ImVec2(posX_Shop_ListItems, posY_Shop_ListItems));
-				Begin("ListBuy", &showBuyShop, ImGuiWindowFlags_Personalitzat1_Llista);
+				Begin("ListBuy", &showBuyShop, ImGuiWindowFlags_Custom1_List);
 				{
 					ImGuiTabBarFlags tab_bar_flags = ImGuiTabBarFlags_None;
 					if (BeginTabBar("OptionsShopBuy", tab_bar_flags))
@@ -286,7 +286,7 @@ int main(int argc, char* args[])
 					// Image under
 					SetNextWindowSizeConstraints(ImVec2(sizeX_ImageItem, sizeY_ImageItem), ImVec2(sizeX_ImageItem, sizeY_ImageItem));
 					SetNextWindowPos(ImVec2(posX_Image, posY_Image));
-					Begin("Image and button image", &showImage, ImGuiWindowFlags_Personalitzat2);
+					Begin("Image and button image", &showImage, ImGuiWindowFlags_Custom2);
 					Image(IMG_forge, ImVec2(sizeX_ImageItem, sizeY_ImageItem));
 					End();
 				}
@@ -295,10 +295,12 @@ int main(int argc, char* args[])
 
 				SetNextWindowSizeConstraints(ImVec2(sizeX_ListBuy, sizeY_ListBuy), ImVec2(sizeX_ListBuy, sizeY_ListBuy));
 				SetNextWindowPos(ImVec2(posX_ListBuy, posY_ListBuy));
-				Begin("ListFeaturesBuy", &showBuyShop, ImGuiWindowFlags_Personalitzat3);
+				Begin("ListFeaturesBuy", &showBuyShop, ImGuiWindowFlags_Custom3);
 				{
+					SetNextWindowSizeConstraints(ImVec2(sizeX_ListBuy, sizeY_ListBuy), ImVec2(sizeX_ListBuy, sizeY_ListBuy));
+					SetNextWindowPos(ImVec2(posX_ListBuy, posY_ListBuy));
 					// Icon + sameline + text + textQuantity				
-					Begin("Icons", &showImage, ImGuiWindowFlags_Personalitzat2);
+					Begin("Icons", &showImage, ImGuiWindowFlags_Custom2);
 					{
 						Text("Name selected object:");
 						Text("%s", productsToDisplay.name);
@@ -307,25 +309,25 @@ int main(int argc, char* args[])
 
 						Image(ICON_health, ImVec2(sizeX_Icon, sizeY_Icon));
 						SameLine();
-						Text("Health 			");
+						Text(" Health		");
 						SameLine();
 						Text("	+0");
 
 						Image(ICON_damage, ImVec2(sizeX_Icon, sizeY_Icon));
 						SameLine();
-						Text("Damage 			");
+						Text(" Damage		");
 						SameLine();
 						Text("	+0");
 
 						Image(ICON_armor, ImVec2(sizeX_Icon, sizeY_Icon));
 						SameLine();
-						Text("Armor 		");
+						Text(" Armor 		");
 						SameLine();
 						Text("	+0");
 
 						Image(ICON_speed, ImVec2(sizeX_Icon, sizeY_Icon));
 						SameLine();
-						Text("Speed		");
+						Text(" Speed 		");
 						SameLine();
 						Text("	+0");
 
@@ -367,7 +369,7 @@ int main(int argc, char* args[])
 				{
 					SetNextWindowSizeConstraints(ImVec2(sizeX_Money, sizeY_Money), ImVec2(sizeX_Money, sizeY_Money));
 					SetNextWindowPos(ImVec2(posX_Money, posY_Money));
-					Begin("TotalMoney", &showBuyShop, ImGuiWindowFlags_Personalitzat3);
+					Begin("TotalMoney", &showBuyShop, ImGuiWindowFlags_Custom3);
 					{
 						Text("Money: %d", moneyTotal);
 						SameLine();
@@ -377,7 +379,7 @@ int main(int argc, char* args[])
 
 					SetNextWindowSizeConstraints(ImVec2(sizeX_NameShop, sizeY_NameShop), ImVec2(sizeX_NameShop, sizeY_NameShop));
 					SetNextWindowPos(ImVec2(posX_NameShop, posY_NameShop));
-					Begin("NameShop", &showBuyShop, ImGuiWindowFlags_Personalitzat3);
+					Begin("NameShop", &showBuyShop, ImGuiWindowFlags_Custom3);
 					{
 						Text("Name shop");
 					}
@@ -385,7 +387,7 @@ int main(int argc, char* args[])
 
 					SetNextWindowSizeConstraints(ImVec2(sizeX_TextBuy, sizeY_TextBuy), ImVec2(sizeX_TextBuy, sizeY_TextBuy));
 					SetNextWindowPos(ImVec2(posX_TextBuy, posY_TextBuy));
-					Begin("TextBuy", &showBuyShop, ImGuiWindowFlags_Personalitzat3);
+					Begin("TextBuy", &showBuyShop, ImGuiWindowFlags_Custom3);
 					{
 						if (Button("BUY##ChangeToSell", ImVec2(150, 50)))
 						{
@@ -404,11 +406,11 @@ int main(int argc, char* args[])
 		{
 			SetNextWindowSizeConstraints(ImVec2(sizeX_Shop, sizeY_Shop), ImVec2(sizeX_Shop, sizeY_Shop));
 			SetNextWindowPos(ImVec2(posX_Shop, posY_Shop));
-			Begin("Shop", &showSellShop, ImGuiWindowFlags_Personalitzat0_Botiga);
+			Begin("Shop", &showSellShop, ImGuiWindowFlags_Custom0_Shop);
 			{
 				SetNextWindowSizeConstraints(ImVec2(sizeX_ListItems, sizeY_ListItems), ImVec2(sizeX_ListItems, sizeY_ListItems));
 				SetNextWindowPos(ImVec2(posX_Shop_ListItems, posY_Shop_ListItems));
-				Begin("ListBuy", &showSellShop, ImGuiWindowFlags_Personalitzat1_Llista);
+				Begin("ListBuy", &showSellShop, ImGuiWindowFlags_Custom1_List);
 				{
 					ImGuiTabBarFlags tab_bar_flags = ImGuiTabBarFlags_None;
 					if (BeginTabBar("OptionsShopBuy", tab_bar_flags))
@@ -440,7 +442,7 @@ int main(int argc, char* args[])
 					// Image under
 					SetNextWindowSizeConstraints(ImVec2(sizeX_ImageItem, sizeY_ImageItem), ImVec2(sizeX_ImageItem, sizeY_ImageItem));
 					SetNextWindowPos(ImVec2(posX_Image, posY_Image));
-					Begin("Image and button image", &showImage, ImGuiWindowFlags_Personalitzat2);
+					Begin("Image and button image", &showImage, ImGuiWindowFlags_Custom2);
 					Image(IMG_forge, ImVec2(sizeX_ImageItem, sizeY_ImageItem));
 					End();
 				}
@@ -449,10 +451,10 @@ int main(int argc, char* args[])
 
 				SetNextWindowSizeConstraints(ImVec2(sizeX_ListBuy, sizeY_ListBuy), ImVec2(sizeX_ListBuy, sizeY_ListBuy));
 				SetNextWindowPos(ImVec2(posX_ListBuy, posY_ListBuy));
-				Begin("ListFeaturesBuy", &showSellShop, ImGuiWindowFlags_Personalitzat3);
+				Begin("ListFeaturesBuy", &showSellShop, ImGuiWindowFlags_Custom3);
 				{
 					// Icon + sameline + text + textQuantity				
-					Begin("Icons", &showImage, ImGuiWindowFlags_Personalitzat2);
+					Begin("Icons", &showImage, ImGuiWindowFlags_Custom2);
 					{
 						Text("Name selected object:");
 						Text("%s", productsToDisplay.name);
@@ -518,7 +520,7 @@ int main(int argc, char* args[])
 				{
 					SetNextWindowSizeConstraints(ImVec2(sizeX_Money, sizeY_Money), ImVec2(sizeX_Money, sizeY_Money));
 					SetNextWindowPos(ImVec2(posX_Money, posY_Money));
-					Begin("TextSell", &showSellShop, ImGuiWindowFlags_Personalitzat3);
+					Begin("TextSell", &showSellShop, ImGuiWindowFlags_Custom3);
 					{
 						if (Button("SELL##ChangeToBuy", ImVec2(150, 50)))
 						{
@@ -532,7 +534,7 @@ int main(int argc, char* args[])
 
 					SetNextWindowSizeConstraints(ImVec2(sizeX_NameShop, sizeY_NameShop), ImVec2(sizeX_NameShop, sizeY_NameShop));
 					SetNextWindowPos(ImVec2(posX_NameShop, posY_NameShop));
-					Begin("NameShop", &showSellShop, ImGuiWindowFlags_Personalitzat3);
+					Begin("NameShop", &showSellShop, ImGuiWindowFlags_Custom3);
 					{
 						Text("Name shop");
 					}
@@ -540,7 +542,7 @@ int main(int argc, char* args[])
 
 					SetNextWindowSizeConstraints(ImVec2(sizeX_TextBuy, sizeY_TextBuy), ImVec2(sizeX_TextBuy, sizeY_TextBuy));
 					SetNextWindowPos(ImVec2(posX_TextBuy, posY_TextBuy));
-					Begin("TotalMoney", &showSellShop, ImGuiWindowFlags_Personalitzat3);
+					Begin("TotalMoney", &showSellShop, ImGuiWindowFlags_Custom3);
 					{
 						Text("Money: %d", moneyTotal);
 						SameLine();
