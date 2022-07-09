@@ -132,6 +132,16 @@ int main(int argc, char* args[])
 	float posX_ListBuy = (sizeX_Shop / 6) * 5;
 	float posY_ListBuy = posY_Shop_ListItems;
 
+	float sizeX_Seller = 260;
+	float sizeY_Seller = 360;
+	float posX_Seller = (sizeX_Shop / 6) * 1;
+	float posY_Seller = posY_Shop_ListItems;
+
+	float sizeX_Seller2 = 260;
+	float sizeY_Seller2 = 360;
+	float posX_Seller2 = (sizeX_Shop / 6) * 5;
+	float posY_Seller2 = posY_Shop_ListItems;
+
 	float sizeX_Money = 150;
 	float sizeY_Money = 70;
 	float posX_Money = posX_Shop - 10;
@@ -229,6 +239,8 @@ int main(int argc, char* args[])
 			SetNextWindowPos(ImVec2(posX_Shop, posY_Shop));
 			Begin("Shop", &showBuyShop, ImGuiWindowFlags_Custom0_Shop);
 			{
+				Image(IMG_guy, ImVec2(sizeX_Seller, sizeY_Seller));
+
 				SetNextWindowSizeConstraints(ImVec2(sizeX_ListItems, sizeY_ListItems), ImVec2(sizeX_ListItems, sizeY_ListItems));
 				SetNextWindowPos(ImVec2(posX_Shop_ListItems, posY_Shop_ListItems));
 				Begin("ListBuy", &showBuyShop, ImGuiWindowFlags_Custom1_List);
@@ -335,7 +347,7 @@ int main(int argc, char* args[])
 						Text("");
 						Text("");
 						Text("");
-						Text("Description object ....");
+						Text("Description of object ....");
 						Text(productsToDisplay.description);
 						Text("............................");
 						Text("............................");
@@ -408,6 +420,8 @@ int main(int argc, char* args[])
 			SetNextWindowPos(ImVec2(posX_Shop, posY_Shop));
 			Begin("Shop", &showSellShop, ImGuiWindowFlags_Custom0_Shop);
 			{
+				Image(IMG_guy, ImVec2(sizeX_Seller2, sizeY_Seller2));
+
 				SetNextWindowSizeConstraints(ImVec2(sizeX_ListItems, sizeY_ListItems), ImVec2(sizeX_ListItems, sizeY_ListItems));
 				SetNextWindowPos(ImVec2(posX_Shop_ListItems, posY_Shop_ListItems));
 				Begin("ListBuy", &showSellShop, ImGuiWindowFlags_Custom1_List);
@@ -463,25 +477,25 @@ int main(int argc, char* args[])
 
 						Image(ICON_health, ImVec2(sizeX_Icon, sizeY_Icon));
 						SameLine();
-						Text("Health 			");
+						Text(" Health    	");
 						SameLine();
 						Text("	+0");
 
 						Image(ICON_damage, ImVec2(sizeX_Icon, sizeY_Icon));
 						SameLine();
-						Text("Damage 			");
+						Text(" Damage    	");
 						SameLine();
 						Text("	+0");
 
 						Image(ICON_armor, ImVec2(sizeX_Icon, sizeY_Icon));
 						SameLine();
-						Text("Armor 		");
+						Text(" Armor	 	");
 						SameLine();
 						Text("	+0");
 
 						Image(ICON_speed, ImVec2(sizeX_Icon, sizeY_Icon));
 						SameLine();
-						Text("Speed		");
+						Text(" Speed 		");
 						SameLine();
 						Text("	+0");
 
@@ -819,7 +833,7 @@ void DeleteItemInventory(vector<Products>* vectorInventory, Products* productSel
 	{
 		if (strcmp(vectorInventory->at(i).name, productSelected->name) == 0) {
 			vectorInventory->at(i).amount = vectorInventory->at(i).amount - 1;
-			totalMoney = totalMoney + vectorInventory->at(i).priceSell;
+			*totalMoney = *totalMoney + vectorInventory->at(i).priceSell;
 			if (vectorInventory->at(i).amount <= 0)
 			{
 				vectorInventory->erase(vectorInventory->begin() + i);
