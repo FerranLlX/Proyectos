@@ -2,9 +2,9 @@
 
 ## C++
 
-Harvest Moon: replica del juego de la GameBoy Color (work in progress). 
+Harvest Moon
 
-ImGui - Prototype store: prototipo de una tienda con ImGui.
+ImGui
 
 ---
 
