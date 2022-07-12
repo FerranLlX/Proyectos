@@ -1,5 +1,3 @@
-﻿  SceneDirector.cpp
-C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Scenes\Farm\Farm.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\Ferran\Desktop\Proyectos\Harvest moon\Harvest moon\Game\Scenes\SceneDirector.cpp(10,10): fatal error C1083: No se puede abrir el archivo incluir: 'Town\Poble.h': No such file or directory
-  Town.cpp
-  Generando código...
+﻿  main.cpp
+D:\Projectes\Proyectos\C++\Harvest moon\Harvest moon\_Others\main.cpp(110,17): warning C4018: '<': no coinciden signed/unsigned
+  Harvest moon.vcxproj -> D:\Projectes\Proyectos\C++\Harvest moon\Debug\Harvest moon.exe

@@ -50,7 +50,7 @@ int main(int argc, char* args[]) {
 	float msFrame = 1 / (FPS / 1000.0f);
 
 	do {
-		inputManager->PreHandleEvent();
+		/*inputManager->PreHandleEvent();
 		inputManager->PollEvent();
 
 		// Key input
@@ -63,7 +63,36 @@ int main(int argc, char* args[]) {
 		else if (keyboard->GetButtonUp(F6)) if (!key_escena6) key_escena6 = true;
 		else if (keyboard->GetButtonUp(F7)) if (!key_escena7) key_escena7 = true;
 		else if (keyboard->GetButtonUp(F8)) if (!key_escena8) key_escena8 = true;
+		*/
 
+		SDL_Event event;
+		while (SDL_PollEvent(&event)) {
+			switch (event.type) {
+
+			case SDL_QUIT:
+				goexit = true;
+				break;
+
+			case SDL_KEYUP:
+				if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) { goexit = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F1) { if (!key_escena1) key_escena1 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F2) { if (!key_escena2) key_escena2 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F3) { if (!key_escena3) key_escena3 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F4) { if (!key_escena4) key_escena4 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F5) { if (!key_escena5) key_escena5 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F6) { if (!key_escena6) key_escena6 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F7) { if (!key_escena7) key_escena7 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F8) { if (!key_escena8) key_escena8 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F9) { if (!key_escena9) key_escena9 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F10) { if (!key_escena10)	key_escena10 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F11) { if (!key_escena11)	key_escena11 = true; }
+				if (event.key.keysym.scancode == SDL_SCANCODE_F12) { if (!key_escena12)	key_escena12 = true; }
+				break;
+
+			default:
+				break;
+			}
+		}
 
 		// Manual change scenes
 		if (key_escena1) { sceneDirector->ChangeScene(INTRO); key_escena1 = false; }
