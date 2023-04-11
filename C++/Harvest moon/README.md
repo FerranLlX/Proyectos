@@ -1,19 +1,28 @@
-La estructura del código más o menos sigue de la siguiente forma:
+Los ficheros más interesantes de ver:
 
 - Altres
   - main.cpp
 - Engine
   - Graphics
+    - ResourceManager.h/.cpp
+    - Video.h/.cpp
   - Input
-  - Sound
-  - Timer
+    - InputManager.h/.cpp
+    - Controls.h/.cpp
+    - Keyboard.h/.cpp
+    - Gamepad.h/.cpp
 - Game
   - Escenes
+    - scene.h/.cpp
+    - sceneDirector.h/.cpp
+    - farm.h/.cpp
   - Jugador
+    - player.h/.cpp
   - Mapa
+    - map.h/.cpp
+    - Tileset.h/.cpp
+    - Layer.h/.cpp
 - Resources
   - Images
-  - Sounds
-  - Xmls
-
-main -> directorEscenas -> granja/mapa
+    - Tmx
+      - Granja.tmx (fichero donde se guardan los canvios)
