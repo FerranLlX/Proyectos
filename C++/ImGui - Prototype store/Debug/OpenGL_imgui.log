@@ -1,3 +1,0 @@
-﻿  Main.cpp
-D:\Projectes\Proyectos\ImGui - Prototype store\src\Main.cpp(806,35): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
-  OpenGL_imgui.vcxproj -> D:\Projectes\Proyectos\ImGui - Prototype store\Debug\OpenGL_imgui.exe
