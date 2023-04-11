@@ -1,3 +1,0 @@
-# UNITY
-
-Vacío de momento.
