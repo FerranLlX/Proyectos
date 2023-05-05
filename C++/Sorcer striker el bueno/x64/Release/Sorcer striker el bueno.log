@@ -1,8 +1,0 @@
-﻿  Enemy_RedBall.cpp
-C:\Users\usuario\Desktop\Jovani-Games-Sorcer-Stricker\Sorcer striker el bueno\Sorcer striker el bueno\Entities\Enemies\Enemy_RedBall.cpp(15,17): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\usuario\Desktop\Jovani-Games-Sorcer-Stricker\Sorcer striker el bueno\Sorcer striker el bueno\Entities\Enemies\Enemy_RedBall.cpp(543,17): warning C4305: '=': truncation from 'double' to 'float'
-  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 785 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  Sorcer striker el bueno.vcxproj -> C:\Users\usuario\Desktop\Jovani-Games-Sorcer-Stricker\Sorcer striker el bueno\x64\Release\Sorcer striker el bueno.exe

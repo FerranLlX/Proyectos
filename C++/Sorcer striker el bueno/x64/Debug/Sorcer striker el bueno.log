@@ -1,4 +1,0 @@
-﻿  ModuleHUD.cpp
-C:\Users\usuario\Desktop\Jovani-Games-Sorcer-Stricker\Sorcer striker el bueno\Sorcer striker el bueno\Modules\Core\ModuleHUD.cpp(113,25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\usuario\Desktop\Jovani-Games-Sorcer-Stricker\Sorcer striker el bueno\Sorcer striker el bueno\Modules\Core\ModuleHUD.cpp(117,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Sorcer striker el bueno.vcxproj -> C:\Users\usuario\Desktop\Jovani-Games-Sorcer-Stricker\Sorcer striker el bueno\x64\Debug\Sorcer striker el bueno.exe
